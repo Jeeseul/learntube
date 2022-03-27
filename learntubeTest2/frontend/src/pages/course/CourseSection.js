@@ -26,7 +26,7 @@ const CoursePart = (props) => {
     };
 
     return (
-        <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pt-100 pb-100 md-pt-70 md-pb-80">
+        <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pb-80">
             <div className="container">
                 <div className="row">
                     {/* <div className="col-lg-4 col-md-12 order-last">
