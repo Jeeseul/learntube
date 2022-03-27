@@ -6,7 +6,10 @@ import SearchModal from '../../components/Layout/Header/SearchModal';
 import Newsletter from '../../components/Common/Newsletter';
 import SiteBreadcrumb from '../../components/Common/Breadcumb';
 import CourseMain from './CourseMain';
-
+import CourseMainAdmin from './CourseMainAdmin';
+import CourseMainClosed from './CourseMainClosed';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 // Image
 import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
@@ -41,7 +44,22 @@ const CourseOne = () => {
             /> */}
             {/* breadcrumb-area-start */}
             <div class="container text-center">
-                <div class="row gutter-35">
+            <Tabs>
+                    <TabList>
+                        <Tab>수강중인 강의실</Tab>
+                        <Tab>관리중인 강의실</Tab>
+                        <Tab>종료된 강의실</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        <CourseMain />
+                    </TabPanel>
+                        <CourseMainAdmin />
+                    <TabPanel>
+                        <CourseMainClosed />
+                    </TabPanel>
+                </Tabs>
+                {/* <div class="row gutter-35">
                     <div class="col-md-4">
                         <div class="address-box sm-mb-30">
                         <a class="classButton orange" href="/">수강중인 강의실</a>
@@ -57,8 +75,9 @@ const CourseOne = () => {
                         <a class="classButton" href="/">종료된 강의실</a>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
+
             {/* Course Main */}
             <CourseMain />
             {/* Course Main */}

@@ -13,7 +13,7 @@ import courseImg6 from '../../assets/img/courses/6.jpg';
 import courseImg7 from '../../assets/img/courses/7.jpg';
 import courseImg8 from '../../assets/img/courses/8.jpg';
 
-const CoursePart = (props) => {
+const CoursePartClosed = (props) => {
 
     const listClassAdd = () => {
         document.getElementById("rs-popular-course").classList.add('list-view');
@@ -56,13 +56,13 @@ const CoursePart = (props) => {
                             <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg1}
-                                courseTitle="영리한 프로그래밍을 위한 알고리즘 강좌"
+                                courseTitle="(종료됨)영리한 프로그래밍을 위한 알고리즘 강좌"
                                 coursePrice="$40.00"
                             />
                             <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg2}
-                                courseTitle="그림으로 쉽게 배우는 운영체제"
+                                courseTitle="(종료됨)그림으로 쉽게 배우는 운영체제"
                                 coursePrice="$28.00"
                             />
                             <CourseDashBoard
@@ -116,4 +116,4 @@ const CoursePart = (props) => {
     );
 }
 
-export default CoursePart;
+export default CoursePartClosed;

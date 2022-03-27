@@ -16,14 +16,14 @@ const CourseDashBoard = (props) => {
                 <h3 className="title"><Link to="/course/course-single">{courseTitle ? courseTitle : '강의제목'}</Link></h3>
                 </div>
                 <ul className="meta-part">
-                    <li><Link className="categorie" to={catLink ? catLink : 'course-categories'}>{courseCategory ? courseCategory : '학습현황 75%'}</Link></li>
+                    <li><Link className="categorie" to={catLink ? catLink : 'course-categories'}>{courseCategory ? courseCategory : '학습현황'}</Link></li>
                 </ul>               
                 <div className="bottom-part">
                     <div className="info-meta">
                         <ul>
                             <li className="user"><i className="fa fa-bullhorn"></i> {userCount ? userCount : '공지'}</li>
                             <li className="ratings">
-                                <span>{userRating ? userRating : '3월 30일 특강 공지'}</span>
+                                <span>{userRating ? userRating : '공지'}</span>
                             </li>
                         </ul>
                     </div>
