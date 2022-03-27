@@ -24,16 +24,16 @@ const CoursePart = (props) => {
     };
 
     return (
-        <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80">
+        <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80">
             <div className="container">
                 <div className="row">
                     <div className="pr-50 md-pr-14">
                         <div className="course-search-part">
-                            <div className="course-view-part">
+                            <div className="course-view-part ">
                                 <div className="view-icons">
                                     
-                                    <button onClick={listClassAdd} className="view-list"><i className="fa fa-list-ul"></i></button>
-                                    <button onClick={listClassRemove} className="view-grid mr-10"><i className="fa fa-th-large"></i></button>
+                                    <button onClick={listClassAdd} className="view-list "><i className="fa fa-list-ul"></i></button>
+                                    <button onClick={listClassRemove} className="view-grid mr-10 list-view"><i className="fa fa-th-large"></i></button>
                                 </div>
                                 <div className="view-text">Showing 1-9 of 11 results</div>
                             </div>
