@@ -1,3 +1,8 @@
+/* .pageTitle{
+    margin-top: 5% !important;
+    margin-bottom: 3% !important;
+} */
+
 .row-mk{
     display:flex !important;
     justify-content: space-between;
@@ -35,7 +40,7 @@
 }
 
 .search-btn-mk button:hover {
-    color: #ff5421;
+    color: #6483d8;
 }
 
 .widget-area-mk{
@@ -54,7 +59,7 @@
     font-weight: 500;
     color: #ffffff;
     padding: 0 40px 0 20px;
-    background: #ff5421;
+    background: #6483d8;
     border: none;
     /* right:0; */
     float:right;
