@@ -1,0 +1,102 @@
+.classButton {
+    outline: none;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 3px;
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family: $bodyFont;
+    font-weight: 500;
+    color: $bodyColor;
+    position: relative;
+    overflow: hidden;
+    &.banner-style {
+        padding: 16px 40px;
+    }
+    &.mod {
+        text-transform: uppercase;
+        padding: 14px 31px;
+    }
+    &.transparent {
+        background: transparent;
+        color: $orangeColor;
+        border: 1px solid $orangeColor;
+        &:hover {
+            color: $whiteColor;
+            background: $orangeColor;
+        }
+    }
+    &.orange-transparent {
+        background: transparent;
+        color: $orangeColor;
+        border: 1px solid $orangeColor;
+        &:hover {
+            color: $whiteColor;
+            background: $orangeColor;
+        }
+    }
+    &.orange {
+        background: $orangeColor;
+        &:hover {
+            background: darken($orangeColor, 5%);
+        }
+    }
+  
+    &:hover {
+        background: darken($orangeColor, 5%);
+        color: $whiteColor;
+    }
+    &.gym-btn{
+        background: $orangeColor;
+        color: #ffffff;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 17px 28px;
+        &:hover{
+            opacity: 0.80;
+        }
+        &.get-now{
+            &:hover{
+                background: $whiteColor;
+                color: $orangeColor;
+            }
+        }
+    }
+    &.cta-btn{
+        background: $orangeColor;
+        color: #ffffff;
+        border-radius: 3px 3px 3px 3px;
+        font-family: "Rubik", Sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: capitalize;
+        padding: 12px 30px 12px 30px;
+        &:hover{
+            color: #F0E3E3;
+            background: #6483d8;
+        }
+    }
+    &.cta-btn{
+        background: $orangeColor;
+        color: #ffffff;
+        border-radius: 3px 3px 3px 3px;
+        font-family: "Rubik", Sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: capitalize;
+        padding: 12px 30px 12px 30px;
+        &:hover{
+            color: #F0E3E3;
+            background: #6483d8;
+        }
+    }
+    &.apply{
+       padding: 10px 30px 10px 30px;
+       &:hover{
+            color: unset;
+       }
+    }
+}

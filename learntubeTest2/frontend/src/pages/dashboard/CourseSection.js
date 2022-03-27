@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import CourseSingleTwo from '../../components/Courses/CourseSingleTwo';
+import CourseDashBoard from '../../components/Courses/CourseDashBoard';
 
 // Course courseImg
 import courseImg1 from '../../assets/img/courses/1.jpg';
@@ -24,15 +24,16 @@ const CoursePart = (props) => {
     };
 
     return (
-        <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pb-80">
+        <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8 pr-50 md-pr-14">
+                    <div className="pr-50 md-pr-14">
                         <div className="course-search-part">
                             <div className="course-view-part">
                                 <div className="view-icons">
-                                    <button onClick={listClassRemove} className="view-grid mr-10"><i className="fa fa-th-large"></i></button>
+                                    
                                     <button onClick={listClassAdd} className="view-list"><i className="fa fa-list-ul"></i></button>
+                                    <button onClick={listClassRemove} className="view-grid mr-10"><i className="fa fa-th-large"></i></button>
                                 </div>
                                 <div className="view-text">Showing 1-9 of 11 results</div>
                             </div>
@@ -50,52 +51,51 @@ const CoursePart = (props) => {
                                 </form>
                             </div>
                         </div>
+                        
                         <div className="course-part clearfix">
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg1}
                                 courseTitle="영리한 프로그래밍을 위한 알고리즘 강좌"
                                 coursePrice="$40.00"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg2}
-                                courseTitle="Learning jQuery Mobile for Beginners"
+                                courseTitle="그림으로 쉽게 배우는 운영체제"
                                 coursePrice="$28.00"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg3}
-                                courseTitle="The Art of Black and White Photography"
+                                courseTitle="프로그래밍 시작하기 : 파이썬 입문"
                                 coursePrice="$22.00"
-                                courseCategory="Photography"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg4}
                                 courseTitle="Learn Python – Interactive Python Tutorial"
                                 coursePrice="$35.00"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg5}
                                 courseTitle="Your Complete Guide to Dark Photography"
                                 coursePrice="$25.00"
-                                courseCategory="Photography"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg6}
                                 courseTitle="From Zero to Hero with Advance Nodejs"
                                 coursePrice="$40.00"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg3}
                                 courseTitle="Become a PHP Master and Make Money Fast"
                                 coursePrice="$22.00"
                             />
-                            <CourseSingleTwo
+                            <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg4}
                                 courseTitle="Introduction to Quantitativ and Qualitative"

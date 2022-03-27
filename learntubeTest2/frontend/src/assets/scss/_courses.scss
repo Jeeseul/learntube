@@ -878,7 +878,7 @@
                             padding: 3px 15px;
                             color: #ffffff;
                             font-weight: 500;
-                            background: #ff5421;
+                            background: #6483d8;
                             border-radius: 5px;
                             transition: all 0.3s ease;
                             position: absolute;
@@ -911,7 +911,7 @@
                             color: #363636;
                             i{
                                 &:before{
-                                    color: #ff5421;
+                                    color: #6483d8;
                                     padding-right: 6px;
                                 }
                             }
@@ -1218,7 +1218,7 @@
                             padding: 3px 15px;
                             color: #ffffff;
                             font-weight: 500;
-                            background: #ff5421;
+                            background: #6483d8;
                             border-radius: 5px;
                             transition: all 0.3s ease;
                             position: absolute;
@@ -1249,7 +1249,7 @@
                             color: $whiteColor;
                             i{
                                 &:before{
-                                    color: #ff5421;
+                                    color: #6483d8;
                                     padding-right: 6px;
                                 }
                             }
@@ -1466,7 +1466,7 @@
     }
     &.orange-style {
         .course-item{
-            border: 1px solid #FF542129;
+            border: 1px solid #6483d829;
             .course-info .course-title a:hover,
             .bottom-part .btn-part a:hover {
                 color: $orangeColor;
