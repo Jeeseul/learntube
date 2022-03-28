@@ -26,10 +26,10 @@ const CourseOne = () => {
                 mobileNormalLogo={Logo}
                 CanvasClass="right_menu_togle hidden-md"
                 headerClass="full-width-header header-style1 home8-style4"
-                TopBar='enable'
-                TopBarClass="topbar-area home8-topbar"
-                emailAddress='support@website.com'
-                Location='374 William S Canning Blvd, MA 2721, USA '
+                // TopBar='enable'
+                // TopBarClass="topbar-area home8-topbar"
+                // emailAddress='support@website.com'
+                // Location='374 William S Canning Blvd, MA 2721, USA '
             />
 
             {/* breadcrumb-area-start */}

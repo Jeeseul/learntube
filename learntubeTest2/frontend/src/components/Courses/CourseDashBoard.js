@@ -15,7 +15,7 @@ const CourseDashBoard = (props) => {
                 <div className="row">
                 <h3 className="title"><Link to="/course/course-single">{courseTitle ? courseTitle : '강의제목'}</Link></h3>
                 </div>
-                <ul className="meta-part">
+                <ul className="meta-part text-start">
                     <li><Link className="categorie" to={catLink ? catLink : 'course-categories'}>{courseCategory ? courseCategory : '학습현황'}</Link></li>
                 </ul>               
                 <div className="bottom-part">

@@ -57,19 +57,19 @@ const CoursePart = (props) => {
                                 courseClass="courses-item"
                                 courseImg={courseImg1}
                                 courseTitle="영리한 프로그래밍을 위한 알고리즘 강좌"
-                                coursePrice="$40.00"
+                                userRating="3월 30일 특강 열립니다."
                             />
                             <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg2}
                                 courseTitle="그림으로 쉽게 배우는 운영체제"
-                                coursePrice="$28.00"
+                                userRating="3월 31일 특강 열립니다."
                             />
                             <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg3}
                                 courseTitle="프로그래밍 시작하기 : 파이썬 입문"
-                                coursePrice="$22.00"
+                                userRating="4월 30일 특강 열립니다."
                             />
                             <CourseDashBoard
                                 courseClass="courses-item right"
