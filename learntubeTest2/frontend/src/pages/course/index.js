@@ -8,7 +8,7 @@ import SiteBreadcrumb from '../../components/Common/Breadcumb';
 import CourseMain from './CourseMain';
 
 // Image
-import Logo from '../../assets/img/logo/dark-logo.png';
+import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
 
 import bannerbg from '../../assets/img/breadcrumbs/breadcrumbs.jpg';
@@ -33,12 +33,12 @@ const CourseOne = () => {
             />
 
             {/* breadcrumb-area-start */}
-            <SiteBreadcrumb
+            {/* <SiteBreadcrumb
                 pageTitle="Course Grid 01"
                 innerClass="breadcrumbs-text"
                 pageName="Course"
                 breadcrumbsImg={bannerbg}
-            />
+            /> */}
             {/* breadcrumb-area-start */}
 
             {/* Course Main */}
