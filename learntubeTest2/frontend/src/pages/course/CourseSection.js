@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios, * as others from 'axios';
 
 import CourseSidebar from './CourseSidebarSection';
 import '../../assets/css/courseList.css';
@@ -17,6 +18,22 @@ import courseImg8 from '../../assets/img/courses/8.jpg';
 
 const CoursePart = (props) => {
 
+    const [course, setCourse] = useState("");
+    // const api = axios.create({
+    //     baseURL: 'http://localhost:8080/api/courses'
+    // })
+    //api.get("/api/courses")
+    useEffect(() => {
+        axios.get("/api/courses").then((response) => {
+            if (response.data) {
+                console.log(response.data);
+                setCourse(response.data);
+            } else {
+                alert("failed to");
+            }
+        });
+    }, []);
+
     const listClassAdd = () => {
         document.getElementById("rs-popular-course").classList.add('list-view');
     };
@@ -24,6 +41,23 @@ const CoursePart = (props) => {
     const listClassRemove = () => {
         document.getElementById("rs-popular-course").classList.remove('list-view');
     };
+
+    // const renderCourses = course.map(course => {
+    //     return (
+    //         <div className="col-lg-4 col-md-6">
+    //             <CourseSingleTwoCopy
+    //                 courseClass="courses-item mb-30"
+    //                 courseImg={courseImg1}
+    //                 courseTitle={course.className}
+    //                 newCourse="New"
+    //                 openDate={course.regDate}
+    //                 creatorName={course.instructorId}
+    //             />
+    //         </div>
+    //     )
+    // }
+
+    // )
 
     return (
         <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pb-80">
@@ -35,30 +69,31 @@ const CoursePart = (props) => {
                     {/* <div className="col-lg pr-50 md-pr-14"> */}
                     {/* <h3 className='pageTitle'>모든 강의 보기</h3> */}
                     <div className='row-mk'>
-                    <div className="widget-area-mk">
+                        <div className="widget-area-mk">
 
-                        <div className="search-wrap-mk search-btn-mk">
-                            <input type="search" placeholder="Searching..." name="s" className="search-input" value="" />
-                            <button type="submit" value="Search"><i className=" flaticon-search"></i></button>
+                            <div className="search-wrap-mk search-btn-mk">
+                                <input type="search" placeholder="Searching..." name="s" className="search-input" value="" />
+                                <button type="submit" value="Search"><i className=" flaticon-search"></i></button>
+                            </div>
+
                         </div>
-
-                    </div>
-                    <div className="widget-area">
-                        <div className="type-form-mk">
-                            <form method="post" action="#">
-                                <div className="form-group mb-0">
-                                    <div className="custom-select-box">
-                                        <select id="timing">
-                                            <option>Default</option>
-                                            <option>Newest</option>
-                                            <option>Old</option>
-                                        </select>
+                        <div className="widget-area">
+                            <div className="type-form-mk">
+                                <form method="post" action="#">
+                                    <div className="form-group mb-0">
+                                        <div className="custom-select-box">
+                                            <select id="timing">
+                                                <option>Default</option>
+                                                <option>Newest</option>
+                                                <option>Old</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    </div>
+                    {/* {renderCourses} */}
                     <div className="col-lg-4 col-md-6">
                         <CourseSingleTwoCopy
                             courseClass="courses-item mb-30"

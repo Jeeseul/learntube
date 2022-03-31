@@ -20,7 +20,7 @@ const HomeFiveMain = () => {
 			{/* BannerStyleFour-End */}
 
 			{/* About-Start */}
-			{/* <About /> */}
+			<About />
 			{/* About-End */}
 
 			{/* Courses-Start */}
