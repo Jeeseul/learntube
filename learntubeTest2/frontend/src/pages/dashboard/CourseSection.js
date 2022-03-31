@@ -24,7 +24,7 @@ const CoursePart = (props) => {
     };
 
     return (
-        <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80">
+        <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80 text-start">
             <div className="container">
                 <div className="row">
                     <div className="pr-50 md-pr-14">
@@ -52,7 +52,7 @@ const CoursePart = (props) => {
                             </div>
                         </div>
 
-                        <div className="course-part clearfix">
+                        <div className="course-part clearfix m-0">
                             <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg1}

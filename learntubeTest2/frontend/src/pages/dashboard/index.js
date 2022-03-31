@@ -31,7 +31,7 @@ const CourseOne = () => {
             <div class="container text-center">
             <Tabs>
                     <TabList className="border-none">
-                        <Tab className="classButton orange mx-5">수강중인 강의실</Tab>
+                        <Tab className="classButton white mx-5">수강중인 강의실</Tab>
                         <Tab className="classButton white mx-5">관리중인 강의실</Tab>
                         <Tab className="classButton white mx-5">종료된 강의실</Tab>
                     </TabList>

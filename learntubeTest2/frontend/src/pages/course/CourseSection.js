@@ -33,7 +33,7 @@ const CoursePart = (props) => {
                         <CourseSidebar />
                     </div> */}
                     {/* <div className="col-lg pr-50 md-pr-14"> */}
-                    <h3 className='pageTitle'>모든 강의 보기</h3>
+                    {/* <h3 className='pageTitle'>모든 강의 보기</h3> */}
                     <div className='row-mk'>
                     <div className="widget-area-mk">
 

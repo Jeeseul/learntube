@@ -5,8 +5,8 @@ const CourseDashBoard = (props) => {
     const { courseClass, courseImg, courseTitle, catLink, coursePrice, courseCategory, userCount, userRating } = props;
     return (
         <div className={courseClass ? courseClass : 'courses-item'}>
-            <div className="img-part">
-                <img
+            <div className="img-part" >
+                <img style={{height: '150px'}}
                     src={courseImg}
                     alt={courseTitle}
                 />

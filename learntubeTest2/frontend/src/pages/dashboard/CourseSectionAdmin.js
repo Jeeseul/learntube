@@ -57,19 +57,19 @@ const CoursePartAdmin = (props) => {
                                 courseClass="courses-item"
                                 courseImg={courseImg1}
                                 courseTitle="(관리자)영리한 프로그래밍을 위한 알고리즘 강좌"
-                                coursePrice="$40.00"
+                                userRating="공지를 등록하세요"
                             />
                             <CourseDashBoard
                                 courseClass="courses-item right"
                                 courseImg={courseImg2}
                                 courseTitle="(관리자)그림으로 쉽게 배우는 운영체제"
-                                coursePrice="$28.00"
+                                userRating="공지를 등록하세요"
                             />
                             <CourseDashBoard
                                 courseClass="courses-item"
                                 courseImg={courseImg3}
                                 courseTitle="프로그래밍 시작하기 : 파이썬 입문"
-                                coursePrice="$22.00"
+                                userRating="공지를 등록하세요"
                             />
                             <CourseDashBoard
                                 courseClass="courses-item right"
@@ -102,13 +102,13 @@ const CoursePartAdmin = (props) => {
                                 coursePrice="$35.00"
                             />
                         </div>
-                        <div className="pagination-area orange-color text-center mt-30 md-mt-0">
+                        {/* <div className="pagination-area orange-color text-center mt-30 md-mt-0">
                             <ul className="pagination-part">
                                 <li className="active"><Link to="#">1</Link></li>
                                 <li><Link to="#">2</Link></li>
                                 <li><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
