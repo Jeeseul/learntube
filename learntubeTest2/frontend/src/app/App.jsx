@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Switch, withRouter } from 'react-router
 //Custom Components
 
 import DashBoard from '../pages/dashboard';
-
+import Main from '../pages/main';
 import Home from '../pages/home';
 import HomeTwo from '../pages/home-2';
 import HomeThree from '../pages/home-3';
@@ -67,8 +67,9 @@ const App = () => {
             <Router>
                 <LoadTop />
                 <Switch>
-                    <Route path="/" exact component={DashBoard} />
+                    <Route path="/dashboard" component={DashBoard} />
                     {/* <Route path="/" exact component={Home} /> */}
+                    <Route path="/" exact component={Main} />
                     <Route path="/home" component={Home} />
                     <Route path="/home-2" component={HomeTwo} />
                     <Route path="/home-3" component={HomeThree} />

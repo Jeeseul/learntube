@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
 const MenuItems = (props) => {
     const { parentMenu, secondParentMenu } = props;
-
     const location = useLocation();
 
     return (
         <React.Fragment>
-            <li className={parentMenu === 'home' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}><Link to="/">대시보드</Link>
-                {/*<ul className="mega-menu">
-                    <li className="mega-menu-container">
-                        <div className="single-megamenu">
-                             <ul className="sub-menu">
+            <li className={parentMenu === 'main' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}><Link to="/">Main</Link></li>
+            <li className={parentMenu === 'dashboard' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}><Link to="/dashboard">Dashboard</Link>
+                {/* <ul className="mega-menu">
+                    <li className="mega-menu-container"> */}
+                        {/* <div className="single-megamenu">
+                            <ul className="sub-menu">
                                 <li>
                                     <Link to="/" className={location.pathname === "/" ? "active-menu" : ""}>Main Demo</Link>
                                 </li>
-                                {/* <li>
+                                <li>
                                     <Link to="/home-2" className={location.pathname === "/home-2" ? "active-menu" : ""}>Online Course</Link>
                                 </li>
                                 <li>
@@ -27,10 +26,10 @@ const MenuItems = (props) => {
                                 </li>
                                 <li>
                                     <Link to="/home-5" className={location.pathname === "/home-5" ? "active-menu" : ""}>Distance Learning</Link>
-                                </li> 
+                                </li>
                             </ul>
-                        </div>
-                         <div className="single-megamenu">
+                        </div> */}
+                        {/* <div className="single-megamenu">
                             <ul className="sub-menu">
                                 <li>
                                     <Link to="/home-6" className={location.pathname === "/home-6" ? "active-menu" : ""}>Personal Demo</Link>
@@ -48,8 +47,8 @@ const MenuItems = (props) => {
                                     <Link to="/home-12" className={location.pathname === "/home-12" ? "active-menu" : ""}>Freelancing Course</Link>
                                 </li>
                             </ul>
-                        </div>
-                        <div className="single-megamenu">
+                        </div> */}
+                        {/* <div className="single-megamenu">
                             <ul className="sub-menu">
                                 <li>
                                     <Link to="/home-14" className={location.pathname === "/home-14" ? "active-menu" : ""}>Courses Archive</Link>
@@ -67,20 +66,23 @@ const MenuItems = (props) => {
                                     <Link to="/home-15" className={location.pathname === "/home-15" ? "active-menu" : ""}>Coming Soon</Link>
                                 </li>
                             </ul>
-                        </div>
-                    </li>
+                        </div> */}
+                    {/* </li>
                 </ul> */}
             </li>
-            <li className={parentMenu === 'about' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
-                <Link to="/course">강의</Link>
-                {/* <ul className="sub-menu">
+            {/* <li className={parentMenu === 'about' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+                <Link to="#">About</Link>
+                <ul className="sub-menu">
                     <li>
                         <Link to="/about" className={location.pathname === "/about" ? "active-menu" : ""}>About One</Link>
                     </li>
                     <li>
                         <Link to="/about-2" className={location.pathname === "/about-2" ? "active-menu" : ""}>About Two</Link>
                     </li>
-                </ul> */}
+                </ul>
+            </li> */}
+            <li className={parentMenu === 'course' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+                <Link to="/course">Courses</Link>
             </li>
             {/* <li className={parentMenu === 'course' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#" as="#">Courses</Link>
@@ -108,10 +110,10 @@ const MenuItems = (props) => {
                     </li>
                 </ul>
             </li> */}
-            {/* <li className={parentMenu === 'pages' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+            <li className={parentMenu === 'pages' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">Pages</Link>
                 <ul className="sub-menu">
-                    <li>
+                    <li>  
                         <Link to="#" className={secondParentMenu === 'team' ? 'menu-item-has-children active-menu' : 'menu-item-has-children'}>Team</Link>
                         <ul className="sub-menu">
                             <li>
@@ -189,7 +191,7 @@ const MenuItems = (props) => {
                     </li>
                 </ul>
             </li>
-            <li className={parentMenu === 'blog' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+            {/* <li className={parentMenu === 'blog' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">Blog</Link>
                 <ul className="sub-menu">
                     <li>
@@ -221,8 +223,8 @@ const MenuItems = (props) => {
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li className={parentMenu === 'contact' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+            </li> */}
+            {/* <li className={parentMenu === 'contact' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">
                     Contact
                 </Link>
@@ -245,4 +247,13 @@ const MenuItems = (props) => {
     );
 }
 
+    
+          
+            
+    
+
+          
+    
+    
+  
 export default MenuItems;

@@ -44,10 +44,11 @@ const BannerStyleFour = () => {
                                 </Tilty>
                             </div>
                             <div className="banner-content pb-14">
-                                <h1 className="banner-title white-color" data-aos="fade-left" data-aos-duration="1000">Distance Learning Build Your Skill</h1>
-                                <div className="desc white-color mb-40" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">The other hand, we denounce with righteous indignation and <br /> dislike men who are so beguiled and demoralized</div>
+                                <h1 className="banner-title white-color" data-aos="fade-left" data-aos-duration="1000">LearnTube</h1>
+                                <h2 className=" white-color" data-aos="fade-left" data-aos-duration="1000">유튜브 영상 + 체계적인 학습</h2>
+                                <div className="desc white-color mb-40" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">YouTube에서 원하는 영상들만 골라 강의리스트를 완성하고, <br /> 강의실 제작자들이 체계적으로 짠 강의들을 골라 수강해보세요!</div>
                                 <div className="banner-btn z-index-1" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600">
-                                    <Link className="readon2 banner-style" to="/about">Discover More</Link>
+                                    <Link className="readon2 banner-style" to="/login">Sign In</Link>
                                 </div>
                             </div>
                             <div className="banner-circle-shape">
