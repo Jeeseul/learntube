@@ -70,12 +70,12 @@ const Header = (props) => {
 													<i className="fa fa-bars"></i>
 												</Link>
 											</div>
-											<nav className="rs-menu hidden-md">
+											<nav className="rs-menu hidden-md text-start">
 												<ul className="nav-menu">
 													<MenuItems
 														parentMenu={parentMenu}
-														secondParentMenu={secondParentMenu}
-														activeMenu={activeMenu}
+													// secondParentMenu={secondParentMenu}
+													// activeMenu={activeMenu}
 													/>
 												</ul>
 											</nav>
@@ -89,52 +89,6 @@ const Header = (props) => {
 												<Link to="#" onClick={searchModalAdd} className="rs-search" href="#">
 													<i className="flaticon-search"></i>
 												</Link>
-											</li>
-											<li className="user-icon cart-inner no-border mini-cart-active">
-												<Link to="#"><i className="fa fa-shopping-bag"></i></Link>
-												<div className="woocommerce-mini-cart text-left">
-													<div className="cart-bottom-part">
-														<ul className="cart-icon-product-list">
-															<li className="display-flex">
-																<div className="icon-cart">
-																	<Link to="#"><i className="fa fa-times"></i></Link>
-																</div>
-																<div className="product-info">
-																	<Link to="/shop/cart">Law Book</Link><br />
-																	<span className="quantity">1 × $30.00</span>
-																</div>
-																<div className="product-image">
-																	<Link to="/shop/cart"><img src={productImg1} alt="Product Image" /></Link>
-																</div>
-															</li>
-															<li className="display-flex">
-																<div className="icon-cart">
-																	<Link to="#"><i className="fa fa-times"></i></Link>
-																</div>
-																<div className="product-info">
-																	<Link to="/shop/cart">Spirit Level</Link><br />
-																	<span className="quantity">1 × $30.00</span>
-																</div>
-																<div className="product-image">
-																	<Link to="/shop/cart"><img src={productImg2} alt="Product Image" /></Link>
-																</div>
-															</li>
-														</ul>
-
-														<div className="total-price text-center">
-															<span className="subtotal">Subtotal:</span>
-															<span className="current-price">$85.00</span>
-														</div>
-
-														<div className="cart-btn text-center">
-															<Link className="crt-btn btn1" to="/shop/cart">View Cart</Link>
-															<Link className="crt-btn btn2" to="/shop/checkout">Check Out</Link>
-														</div>
-													</div>
-												</div>
-											</li>
-											<li className="user-icon last-icon hidden-lg">
-												<Link to="/shop/my-account"><i className="fa fa-user-o" aria-hidden="true"></i></Link>
 											</li>
 											<li>
 												<a onClick={canvasMenuAdd} id="nav-expander" className="nav-expander" href="#">
@@ -150,10 +104,10 @@ const Header = (props) => {
 						</div>
 					</div>
 
-					<RSMobileMenu 
-						menuOpen={menuOpen} 
-						setMenuOpen={setMenuOpen} 
-						parentMenu={parentMenu} 
+					<RSMobileMenu
+						menuOpen={menuOpen}
+						setMenuOpen={setMenuOpen}
+						parentMenu={parentMenu}
 						secondParentMenu={secondParentMenu}
 					/>
 					<div onClick={() => setMenuOpen(false)} className={menuOpen ? "body-overlay show" : "body-overlay"}></div>

@@ -102,13 +102,13 @@ const CoursePartClosed = (props) => {
                                 coursePrice="$35.00"
                             />
                         </div>
-                        <div className="pagination-area orange-color text-center mt-30 md-mt-0">
+                        {/* <div className="pagination-area orange-color text-center mt-30 md-mt-0">
                             <ul className="pagination-part">
                                 <li className="active"><Link to="#">1</Link></li>
                                 <li><Link to="#">2</Link></li>
                                 <li><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
