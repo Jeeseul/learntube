@@ -76,7 +76,7 @@ const CoursePart = (props) => {
     // )
     //console.log(courses[0][1].className)
     const data_ent = Object.entries(courses)
-    console.log(typeof data_ent[0][1].regDate)
+    //console.log(typeof data_ent[0][1].regDate)
         const renderCourses = data_ent.map(
             (oneCourse, index) => {
                 return (
