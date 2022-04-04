@@ -42,7 +42,7 @@ function About() {
                             titleClass="title"
                             title={<>Welcome to LearnTube</>}
                             descClass="desc pr-36"
-                            description="어떤 내용을 쓰기로 했나욤? 없어도 됐었나?"
+                            description="learnTube란 뭘까? 어떻게 쓰는 거지?"
                             animateName="fade-up"
                             animateDuration="1200"
                         />
