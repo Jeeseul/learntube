@@ -27,12 +27,7 @@ const CourseSidebar = () => {
                         <span className="label">Lectures</span>
                         <span className="value">3</span>
                     </li>
-                    
-                    <li className="quizzes-feature">
-                        <i className="fa fa-puzzle-piece"></i>
-                        <span className="label">Quizzes</span>
-                        <span className="value">0</span>
-                    </li>
+                
                     
                     <li className="duration-feature">
                         <i className="fa fa-clock-o"></i>
@@ -45,18 +40,12 @@ const CourseSidebar = () => {
                         <span className="label">Students</span>
                         <span className="value">21</span>
                     </li>
-                    
-                    <li className="assessments-feature">
-                        <i className="fa fa-check-square-o"></i>
-                        <span className="label">Assessments</span>
-                        <span className="value">Yes</span>
-                    </li>
                 </ul>
             </div>                
-            <div className="btn-part">
+            {/* <div className="btn-part">
                 <a href="#" className="btn readon2 orange">$35</a>
                 <a href="#" className="btn readon2 orange-transparent">Buy Now</a>
-            </div>
+            </div> */}
         </div>
     );
 }

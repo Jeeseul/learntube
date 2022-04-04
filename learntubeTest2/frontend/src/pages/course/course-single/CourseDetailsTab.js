@@ -10,54 +10,31 @@ import CurriculumPart from './CurriculumPart';
 
 const CourseDetailsTab = () => {
 
-    let tab1 = "Overview",
-        tab2 = "Curriculum",
-        tab3 = "Instructor",
-        tab4 = "Faq",
-        tab5 = "Reviews"
+
+      let  tab2 = "Curriculum";
+
     const tabStyle = 'intro-tabs tabs-box';
 
     return (
         <div className="intro-info-tabs">
-            <Tabs>
+                                <CurriculumPart />
+            {/* <Tabs>
                 <TabList className={tabStyle}>
-                    <Tab>
-                        <button>{tab1}</button>
-                    </Tab>
+
                     <Tab>
                         <button>{tab2}</button>
                     </Tab>
-                    <Tab>
-                        <button>{tab3}</button>
-                    </Tab>
-                    <Tab>
-                        <button>{tab4}</button>
-                    </Tab>
-                    <Tab>
-                        <button>{tab5}</button>
-                    </Tab>
+
+
                 </TabList>
 
-                <TabPanel>
-                    <OverviewPart />
-                </TabPanel>
 
                 <TabPanel>
                     <CurriculumPart />
                 </TabPanel>
 
-                <TabPanel>
-                    <InstructorPart />
-                </TabPanel>
 
-                <TabPanel>
-                    <FaqPart />
-                </TabPanel>
-
-                <TabPanel>
-                    <ReviewPart />
-                </TabPanel>
-            </Tabs>
+            </Tabs> */}
             {/* <ul className="nav nav-tabs intro-tabs tabs-box" id="myTab" role="tablist">
                 <li className="nav-item tab-btns">
                     <a className="nav-link tab-btn active" id="prod-overview-tab" data-toggle="tab" href="#prod-overview" role="tab" aria-controls="prod-overview" aria-selected="true">Overview</a>

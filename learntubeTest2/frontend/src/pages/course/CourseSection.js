@@ -33,22 +33,6 @@ const CoursePart = (props) => {
     useEffect(() => {
         getCourse();
     },[]);
-    // useEffect(() => {
-    //     axios.get("/api/courses").then((response) => {
-    //         if (response.data) {
-    //             //console.log("response");
-    //             //console.log(response.data);
-    //             //const objectToArray = Object.values(response.data);
-    //             setCourse(response.data);
-    //             // console.log(objectToArray);
-    //             //console.log(typeof courses);
-    //             //console.log("courses : ");
-    //             console.log(courses); 
-    //         } else {
-    //             alert("failed to");
-    //         }
-    //     });
-    // }, []);
 
     const listClassAdd = () => {
         document.getElementById("rs-popular-course").classList.add('list-view');
@@ -58,26 +42,10 @@ const CoursePart = (props) => {
         document.getElementById("rs-popular-course").classList.remove('list-view');
     };
 
-    // const renderCourses = courses == null ? <div>null!</div>: courses.map(
-    //     oneCourse => {
-    //         return (
-    //             <div className="col-lg-4 col-md-6">
-    //                 <CourseSingleTwoCopy
-    //                     courseClass="courses-item mb-30"
-    //                     courseImg={courseImg1}
-    //                     courseTitle={oneCourse.className}
-    //                     newCourse="New"
-    //                     openDate={oneCourse.regDate}
-    //                     creatorName={oneCourse.instructorId}
-    //                 />
-    //             </div>
-    //         ) 
-    //     }
-    // )
     //console.log(courses[0][1].className)
     const data_ent = Object.entries(courses)
     //console.log(typeof data_ent[0][1].regDate)
-        const renderCourses = data_ent.map(
+    const renderCourses = data_ent.map(
             (oneCourse, index) => {
                 return (
                     <div className="col-lg-4 col-md-6">

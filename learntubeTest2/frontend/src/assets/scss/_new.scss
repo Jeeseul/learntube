@@ -99,4 +99,65 @@
             color: unset;
        }
     }
+
+}
+.dashboard-tabs{
+    position:relative;
+    border: none;
+    .react-tabs__tab{
+        position:relative;
+        text-align:center;
+        width: 32.3%;
+        display: inline-block;
+        button{
+            position:relative;
+            display:block;
+            width: 100%;
+            font-size:14px;
+            background:none;
+            background: #FFFFFF;
+            color:#626262;
+            border: none;
+            font-weight:500;
+            line-height:24px;
+            padding:12px 40px 10px;
+            text-transform:capitalize;
+            transition:all 500ms ease;                
+        }
+        &:hover,
+        &.react-tabs__tab--selected{
+            button {
+                color:#ffffff;
+                background:#6483d8;
+                border-color: #6483d8;
+            }
+        }
+    }
+    .react-tabs__tab-panel{
+        position:relative;
+        overflow:hidden;
+        background-color:#ffffff;
+        .minutes{
+            position:relative;
+            color:#21a7d0;
+            font-size:14px;
+            font-weight:500;
+            margin-top:12px;
+        }
+    }
+}
+
+
+@media #{$lg} {
+    .dashboard-tabs .react-tabs__tab button {
+        padding: 12px 10px 10px;
+    }
+    .btn {
+        padding: 14px 20px;
+    }
+}
+@media #{$mobile} {
+    .dashboard-tabs .react-tabs__tab {
+        width: 100%;
+    }
 }

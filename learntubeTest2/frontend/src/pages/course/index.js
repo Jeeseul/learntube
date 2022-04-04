@@ -45,10 +45,10 @@ const CourseOne = () => {
             <CourseMain />
             {/* Course Main */}
 
-            <Newsletter
+            {/* <Newsletter
                 sectionClass="rs-newsletter style1 orange-color mb--90 sm-mb-0 sm-pb-70"
                 titleClass="title mb-0 white-color"
-            />
+            /> */}
 
             <Footer
                 footerClass="rs-footer home9-style main-home"

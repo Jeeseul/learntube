@@ -8,13 +8,19 @@ import CourseMain from './CourseMain';
 import CourseMainAdmin from './CourseMainAdmin';
 import CourseMainClosed from './CourseMainClosed';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+
+// import '../../assets/scss/_course_single.scss';
+
 // Image
 import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
 
 const CourseOne = () => {
+    let tab1 = "수강중인 강의실",
+        tab2 = "관리중인 강의실",
+        tab3 = "종료된 강의실",
 
+        tabStyle = 'intro-tabs tabs-box';
     return (
         <React.Fragment>
             <OffWrap />
@@ -28,47 +34,40 @@ const CourseOne = () => {
                 headerClass="full-width-header header-style1 home8-style4"
             />
 
-            <div class="container text-center">
-            <Tabs>
-                    <TabList className="border-none">
-                        <Tab className="classButton white mx-5">수강중인 강의실</Tab>
-                        <Tab className="classButton white mx-5">관리중인 강의실</Tab>
-                        <Tab className="classButton white mx-5">종료된 강의실</Tab>
-                    </TabList>
+            <div class="container text-center dashboard-tabs">
+                <div className="intro-info-tabs border-none">
+                    <Tabs>
+                        <TabList className={tabStyle}>
+                            <Tab>
+                                <button>{tab1}</button>
+                            </Tab>
+                            <Tab>
+                                <button>{tab2}</button>
+                            </Tab>
+                            <Tab>
+                                <button>{tab3}</button>
+                            </Tab>
+                        </TabList>
 
-                    <TabPanel>
-                        <CourseMain />
-                    </TabPanel>
-                        <CourseMainAdmin />
-                    <TabPanel>
-                        <CourseMainClosed />
-                    </TabPanel>
-                </Tabs>
-                {/* <div class="row gutter-35">
-                    <div class="col-md-4">
-                        <div class="address-box sm-mb-30">
-                        <a class="classButton orange" href="/">수강중인 강의실</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="address-box sm-mb-30">
-                        <a class="classButton" href="/">관리중인 강의실</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="address-box sm-mb-30">
-                        <a class="classButton" href="/">종료된 강의실</a>
-                        </div>
-                    </div>
-                </div> */}
+                        <TabPanel>
+                            <CourseMain />
+                        </TabPanel>
+
+                        <TabPanel>
+                            <CourseMainAdmin />
+                        </TabPanel>
+
+                        <TabPanel>
+                            <CourseMainClosed />
+                        </TabPanel>
+
+                    </Tabs>
+                </div>
             </div>
 
-            {/* Course Main */}
-            <CourseMain />
-            {/* Course Main */}
 
             <Newsletter
-                sectionClass="rs-newsletter style1 orange-color mb--90 sm-mb-0 sm-pb-70"
+                sectionClass="rs-newsletter style1 orange-color mb—90 sm-mb-0 sm-pb-70"
                 titleClass="title mb-0 white-color"
             />
 
