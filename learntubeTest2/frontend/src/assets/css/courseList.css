@@ -121,6 +121,9 @@
 }
 .title{
     margin: 0 !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .creatorName{
     margin: 0 !important;

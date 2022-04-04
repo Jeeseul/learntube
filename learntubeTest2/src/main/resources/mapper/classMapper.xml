@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.ClassDAOInterface">
+
 	<select id="getAllCourse" resultType="ClassDTO">
 		select * 
 		from learntube.class
+		where class.isActive = 1 AND class.openCode = 1
+	</select>
+	
+	<select id="getAllCourseInfo" resultType="CourseInfoDTO">
+		select class.id as classId, className, name as instructorName, classDescription, openCode, tag, isActive, regDate
+		from learntube.class join user u on class.instructorId = u.id
 		where class.isActive = 1 AND class.openCode = 1
 	</select>
 </mapper>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
 const CourseSingleTwoCopy = (props) => {
-    const { courseClass, courseImg, courseTitle, catLink, newCourse, userCount, openDate, creatorName } = props;
+    const { courseId, courseClass, courseImg, courseTitle, catLink, newCourse, userCount, openDate, creatorName } = props;
     return (
         <div className={courseClass ? courseClass : 'courses-item'}>
             <div className="img-part content-part">
@@ -17,7 +18,8 @@ const CourseSingleTwoCopy = (props) => {
                 : null}
             </div>
             <div className="content-part">
-                <h3 className="title"><Link to="/course/course-single">{courseTitle ? courseTitle : 'Become a PHP Master and Make Money Fast'}</Link></h3>
+                <h4 className="title title-mk" data-for={courseTitle} data-tip><Link to="/course/course-single">{courseTitle ? courseTitle : '강의의 제목이 설정되지 않았습니다.'}</Link></h4>
+                <ReactTooltip id={courseTitle}>{courseTitle}</ReactTooltip>
                 <div className="bottom-part">
                     <div className="info-meta">
                         <p className='creatorName'>{creatorName ? creatorName : '-'}</p>

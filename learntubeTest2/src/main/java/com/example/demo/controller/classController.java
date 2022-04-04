@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.example.demo.dto.ClassDTO;
+import com.example.demo.dto.CourseInfoDTO;
 import com.example.demo.service.ClassService;
 
 
@@ -23,16 +24,15 @@ public class classController {
 	private ClassService classService;
 	
 	@RequestMapping(value = "api/courses", method = RequestMethod.GET)
-	@ResponseBody
-	public List<ClassDTO> getAllCourse() {
-		//ModelAndView mv = new ModelAndView();
+	public List<CourseInfoDTO> getAllCourse() {
+		ModelAndView mv = new ModelAndView();
 		
-		List<ClassDTO> courseList = classService.getAllCourse();
-		for(ClassDTO c : courseList) {
+		List<CourseInfoDTO> courseList = classService.getAllCourseInfo();
+		for(CourseInfoDTO c : courseList) {
 			c.toString();	
 		}
-//		mv.addObject("courseList",courseList );
-//		mv.setViewName("course");
+		mv.addObject("courseList",courseList );
+		mv.setViewName("course");
 		
 		return courseList;
 	}

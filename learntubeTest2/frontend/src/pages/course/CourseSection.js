@@ -18,21 +18,37 @@ import courseImg8 from '../../assets/img/courses/8.jpg';
 
 const CoursePart = (props) => {
 
-    const [course, setCourse] = useState("");
-    // const api = axios.create({
-    //     baseURL: 'http://localhost:8080/api/courses'
-    // })
-    //api.get("/api/courses")
+    //const [courses, setCourse] = useState(null);
+    const [courses, setCourse] = useState({});
+    //const [courses, setCourse] = useState(null);
+
+    const getCourse = async () => {
+        const courseData = await axios.get("/api/courses");
+        //console.log(courseData.data);
+        setCourse(courseData.data);
+        // console.log("courses");
+        // console.log(courses);
+    };
+
     useEffect(() => {
-        axios.get("/api/courses").then((response) => {
-            if (response.data) {
-                console.log(response.data);
-                setCourse(response.data);
-            } else {
-                alert("failed to");
-            }
-        });
-    }, []);
+        getCourse();
+    },[]);
+    // useEffect(() => {
+    //     axios.get("/api/courses").then((response) => {
+    //         if (response.data) {
+    //             //console.log("response");
+    //             //console.log(response.data);
+    //             //const objectToArray = Object.values(response.data);
+    //             setCourse(response.data);
+    //             // console.log(objectToArray);
+    //             //console.log(typeof courses);
+    //             //console.log("courses : ");
+    //             console.log(courses); 
+    //         } else {
+    //             alert("failed to");
+    //         }
+    //     });
+    // }, []);
 
     const listClassAdd = () => {
         document.getElementById("rs-popular-course").classList.add('list-view');
@@ -42,22 +58,42 @@ const CoursePart = (props) => {
         document.getElementById("rs-popular-course").classList.remove('list-view');
     };
 
-    // const renderCourses = course.map(course => {
-    //     return (
-    //         <div className="col-lg-4 col-md-6">
-    //             <CourseSingleTwoCopy
-    //                 courseClass="courses-item mb-30"
-    //                 courseImg={courseImg1}
-    //                 courseTitle={course.className}
-    //                 newCourse="New"
-    //                 openDate={course.regDate}
-    //                 creatorName={course.instructorId}
-    //             />
-    //         </div>
-    //     )
-    // }
-
+    // const renderCourses = courses == null ? <div>null!</div>: courses.map(
+    //     oneCourse => {
+    //         return (
+    //             <div className="col-lg-4 col-md-6">
+    //                 <CourseSingleTwoCopy
+    //                     courseClass="courses-item mb-30"
+    //                     courseImg={courseImg1}
+    //                     courseTitle={oneCourse.className}
+    //                     newCourse="New"
+    //                     openDate={oneCourse.regDate}
+    //                     creatorName={oneCourse.instructorId}
+    //                 />
+    //             </div>
+    //         ) 
+    //     }
     // )
+    //console.log(courses[0][1].className)
+    const data_ent = Object.entries(courses)
+    console.log(typeof data_ent[0][1].regDate)
+        const renderCourses = data_ent.map(
+            (oneCourse, index) => {
+                return (
+                    <div className="col-lg-4 col-md-6">
+                        <CourseSingleTwoCopy
+                            courseClass="courses-item mb-30"
+                            courseId={oneCourse[1].classId}
+                            courseImg={courseImg1}
+                            courseTitle={oneCourse[1].className} 
+                            newCourse="New"
+                            openDate={oneCourse[1].regDate}
+                            creatorName={oneCourse[1].instructorName}
+                        />
+                    </div>
+                ) 
+            }
+        )
 
     return (
         <div id="rs-popular-course" className="rs-popular-courses style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pb-80">
@@ -93,8 +129,9 @@ const CoursePart = (props) => {
                             </div>
                         </div>
                     </div>
-                    {/* {renderCourses} */}
-                    <div className="col-lg-4 col-md-6">
+                    {renderCourses}
+                    
+                    {/* <div className="col-lg-4 col-md-6">
                         <CourseSingleTwoCopy
                             courseClass="courses-item mb-30"
                             courseImg={courseImg1}
@@ -172,7 +209,7 @@ const CoursePart = (props) => {
                             <li><Link to="#">2</Link></li>
                             <li><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li>
                         </ul>
-                    </div>
+                    </div> */}
 
                     {/* </div> */}
                 </div>

@@ -28,6 +28,7 @@
 		"react-slick": "^0.28.1",
 		"react-tabs": "^3.2.3",
 		"react-tilty": "^2.0.3",
+		"react-tooltip": "^4.2.21",
 		"react-visibility-sensor": "^5.1.1",
 		"sass": "^1.26.9",
 		"web-vitals": "^0.2.4"
