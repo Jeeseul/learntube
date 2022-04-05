@@ -64,7 +64,7 @@ public class CourseInfoDTO {
 	}
 	@Override
 	public String toString() {
-		return "CourseInfoDTO [id=" + id + ", className=" + className + ", instructorId=" + instructorId
+		return "CourseInfoDTO [classId=" + classId + ", className=" + className + ", instructorId=" + instructorId
 				+ ", instructorName=" + instructorName + ", classDescription=" + classDescription + ", openCode="
 				+ openCode + ", tag=" + tag + ", isActive=" + isActive + ", regDate=" + regDate + "]";
 	}
