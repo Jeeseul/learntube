@@ -11,7 +11,7 @@ import SiteBreadcrumb from '../../components/Common/Breadcumb';
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
-import Logo from '../../assets/img/logo/dark-logo.png';
+import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
 
 import bannerbg from '../../assets/img/breadcrumbs/2.jpg';
@@ -39,22 +39,12 @@ const Event = () => {
                 mobileNormalLogo={Logo}
                 CanvasClass="right_menu_togle hidden-md"
                 headerClass="full-width-header header-style1 home8-style4"
-                TopBar='enable'
-                TopBarClass="topbar-area home8-topbar"
-                emailAddress='support@website.com'
-                Location='374 William S Canning Blvd, MA 2721, USA '
             />
 
-            {/* breadcrumb-area-start */}
-            <SiteBreadcrumb
-                pageTitle="Event One"
-                pageName="Event"
-                breadcrumbsImg={bannerbg}
-            />
-            {/* breadcrumb-area-End */}
 
             <div className="rs-event orange-style pt-100 pb-100 md-pt-80 md-pb-80">
                 <div className="container">
+                    <h3>LearnTube Studio</h3>
                     <div className="row">
                         <div className="col-lg-4 col-md-6 mb-60">
                             <SingleEvent

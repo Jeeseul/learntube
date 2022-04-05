@@ -110,7 +110,8 @@ const MenuItems = (props) => {
                     </li>
                 </ul>
             </li> */}
-            <li className={parentMenu === 'pages' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
+            <li className={parentMenu === 'learntube' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}><Link to="/learntube-studio">LearnTube Studio</Link></li>
+            {/* <li className={parentMenu === 'pages' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">Pages</Link>
                 <ul className="sub-menu">
                     <li>  
@@ -190,7 +191,7 @@ const MenuItems = (props) => {
                         </ul>
                     </li>
                 </ul>
-            </li>
+            </li> */}
             {/* <li className={parentMenu === 'blog' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">Blog</Link>
                 <ul className="sub-menu">

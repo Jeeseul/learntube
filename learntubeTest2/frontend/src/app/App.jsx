@@ -67,6 +67,7 @@ const App = () => {
             <Router>
                 <LoadTop />
                 <Switch>
+                <Route path="/learntube-studio" component={Event} />
                     <Route path="/dashboard" component={DashBoard} />
                     {/* <Route path="/" exact component={Home} /> */}
                     <Route path="/" exact component={Main} />
