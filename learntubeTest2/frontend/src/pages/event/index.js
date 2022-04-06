@@ -8,6 +8,15 @@ import SearchModal from '../../components/Layout/Header/SearchModal';
 import Newsletter from '../../components/Common/Newsletter';
 import ScrollToTop from '../../components/Common/ScrollTop';
 import SiteBreadcrumb from '../../components/Common/Breadcumb';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import MetaWidget from '../../components/Widget/MetaWidget';
+import PlaylistWidget from '../../components/Widget/PlaylistWidget';
+import MyPlaylistWidget from '../../components/Widget/MyPlaylistWidget';
+
+import SearchWidget from '../../components/Widget/SearchWidget';
+import RecentPostWidget from '../../components/Widget/RecentPostWidget';
+import SinglePostSidebar from '../blog/SinglePostSidebar';
+
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
@@ -42,9 +51,27 @@ const Event = () => {
             />
 
 
-            <div className="rs-event orange-style pt-100 pb-100 md-pt-80 md-pb-80">
+            <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
                 <div className="container">
                     <h3>LearnTube Studio</h3>
+
+                    <div className="widget-area">
+                        < SearchWidget />
+                    </div>
+                    <div class="container text-center dashboard-tabs">
+                        <div className="intro-info-tabs border-none row">
+                            <div className="col-lg-4 col-md-12">
+                                <div className="widget-area">
+                                    <MyPlaylistWidget />
+                                </div>
+                            </div>
+                            <div className="col-lg-8 col-md-12">
+                                <div className="widget-area">
+                                    <PlaylistWidget />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-lg-4 col-md-6 mb-60">
                             <SingleEvent
