@@ -33,7 +33,8 @@ import CourseCategoryPage from '../pages/course-categories';
 import Team from '../pages/team';
 import TeamTwo from '../pages/team-2';
 import TeamSingle from '../pages/team/team-single';
-import Event from '../pages/event';
+import Playlist from '../pages/playlist';
+import MyPlaylist from '../pages/playlist/myPlaylist';
 import EventTwo from '../pages/event-2';
 import EventThree from '../pages/event-3';
 import Gallery from '../pages/gallery';
@@ -67,7 +68,8 @@ const App = () => {
             <Router>
                 <LoadTop />
                 <Switch>
-                <Route path="/learntube-studio" component={Event} />
+                    <Route path="/learntube-studio" component={Playlist} />
+                    <Route path="/learntube-studio/myPlaylist" component={MyPlaylist} />
                     <Route path="/dashboard" component={DashBoard} />
                     {/* <Route path="/" exact component={Home} /> */}
                     <Route path="/" exact component={Main} />
