@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/Layout/Header/Header';
 import Footer from '../../components/Layout/Footer/Footer';
 import OffWrap from '../../components/Layout/Header/OffWrap';
 import SearchModal from '../../components/Layout/Header/SearchModal';
 import ScrollToTop from '../../components/Common/ScrollTop';
-import PlaylistWidget from '../../components/Widget/PlaylistWidget';
-import MyPlaylistWidget from '../../components/Widget/MyPlaylistWidget';
-import SearchWidget from '../../components/Widget/SearchWidget';
+import YoutubeVideoListWidget from '../../components/Widget/YoutubeVideoListWidget';
+import YoutubeVideoSearchWidget from '../../components/Widget/YoutubeVideoSearchWidget';
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
@@ -20,7 +20,17 @@ import eventImg2 from '../../assets/img/event/home12/2.jpg';
 import eventImg3 from '../../assets/img/event/home12/3.jpg';
 import eventImg4 from '../../assets/img/event/home12/4.jpg';
 
-const Playlist = () => {
+const YoutubeSearch = () => {
+
+    const [query,setQuery] = useState('');
+    //const [isSearching,setSearching] = useState(false);
+
+      const clickSearch = (query) => {
+        console.log("query at the parent component:" + query);
+        setQuery(query);
+        //setSearching(true);
+    };
+
 
     return (
         <React.Fragment>
@@ -44,13 +54,14 @@ const Playlist = () => {
                 <div className="container">
                     <h3>LearnTube Studio</h3>
                     <div className="widget-area">
-                        < SearchWidget />
+                        < YoutubeVideoSearchWidget clickSearch={clickSearch}/>
                     </div>
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                            <div className="col-lg-8 col-md-12">
+                            <div className="col-md-12">
                                 <div className="widget-area">
-                                    <PlaylistWidget />
+                                    <YoutubeVideoListWidget query={query}/>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -74,4 +85,4 @@ const Playlist = () => {
     );
 }
 
-export default Playlist
+export default YoutubeSearch

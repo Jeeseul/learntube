@@ -5,7 +5,7 @@ import Footer from '../../components/Layout/Footer/Footer';
 import OffWrap from '../../components/Layout/Header/OffWrap';
 import SearchModal from '../../components/Layout/Header/SearchModal';
 import ScrollToTop from '../../components/Common/ScrollTop';
-import PlaylistWidget from '../../components/Widget/PlaylistWidget';
+import MyPlaylistDetailWidget from '../../components/Widget/MyPlaylistDetailWidget';
 import MyPlaylistWidget from '../../components/Widget/MyPlaylistWidget';
 import SearchWidget from '../../components/Widget/SearchWidget';
 
@@ -13,14 +13,9 @@ import SearchWidget from '../../components/Widget/SearchWidget';
 import favIcon from '../../assets/img/fav-orange.png';
 import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
+import courseImg1 from '../../assets/img/courses/1.jpg';
 
-// Event Images
-import eventImg1 from '../../assets/img/event/home12/1.jpg';
-import eventImg2 from '../../assets/img/event/home12/2.jpg';
-import eventImg3 from '../../assets/img/event/home12/3.jpg';
-import eventImg4 from '../../assets/img/event/home12/4.jpg';
-
-const Playlist = () => {
+const MyPlaylist = () => {
 
     return (
         <React.Fragment>
@@ -48,9 +43,21 @@ const Playlist = () => {
                     </div>
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
+                            <div className="col-lg-4 col-md-12">
+                                <div className="widget-area">
+                                    <MyPlaylistWidget />
+                                </div>
+                            </div>
                             <div className="col-lg-8 col-md-12">
                                 <div className="widget-area">
-                                    <PlaylistWidget />
+                                    <MyPlaylistDetailWidget
+                                        playlistTitle="DFS 알고리즘"
+                                        playlistImg={courseImg1}
+                                        playlistTime="01:34"
+                                        playlistVideo={6}
+                                        openDate="2022.03"
+                                        creatorName="양지후"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -74,4 +81,4 @@ const Playlist = () => {
     );
 }
 
-export default Playlist
+export default MyPlaylist

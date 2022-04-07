@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch, withRouter } from 'react-router
 
 //Custom Components
 
+import YoutubeSearch from '../pages/youtube-search';
 import DashBoard from '../pages/dashboard';
 import Main from '../pages/main';
 import Home from '../pages/home';
@@ -68,6 +69,7 @@ const App = () => {
             <Router>
                 <LoadTop />
                 <Switch>
+                    <Route path="/learntube-studio/youtubeSearch" component={YoutubeSearch} />
                     <Route path="/learntube-studio" exact component={Playlist} />
                     <Route path="/learntube-studio/myPlaylist" component={MyPlaylist} />
                     <Route path="/dashboard" component={DashBoard} />
