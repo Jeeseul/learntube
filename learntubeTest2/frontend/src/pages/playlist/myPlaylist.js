@@ -13,6 +13,7 @@ import SearchWidget from '../../components/Widget/SearchWidget';
 import favIcon from '../../assets/img/fav-orange.png';
 import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
+import courseImg1 from '../../assets/img/courses/1.jpg';
 
 const MyPlaylist = () => {
 
@@ -49,7 +50,14 @@ const MyPlaylist = () => {
                             </div>
                             <div className="col-lg-8 col-md-12">
                                 <div className="widget-area">
-                                    {/* <MyPlaylistDetailWidget/> */}
+                                    <MyPlaylistDetailWidget
+                                        playlistTitle="DFS 알고리즘"
+                                        playlistImg={courseImg1}
+                                        playlistTime="01:34"
+                                        playlistVideo={6}
+                                        openDate="2022.03"
+                                        creatorName="양지후"
+                                    />
                                 </div>
                             </div>
                         </div>

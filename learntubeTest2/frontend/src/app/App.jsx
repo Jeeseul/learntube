@@ -68,7 +68,7 @@ const App = () => {
             <Router>
                 <LoadTop />
                 <Switch>
-                    <Route path="/learntube-studio" component={Playlist} />
+                    <Route path="/learntube-studio" exact component={Playlist} />
                     <Route path="/learntube-studio/myPlaylist" component={MyPlaylist} />
                     <Route path="/dashboard" component={DashBoard} />
                     {/* <Route path="/" exact component={Home} /> */}

@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Playlist_listview from '../Events/Playlist_listview';
 
-const MyPlaylistDetailWidget = () => {
+const MyPlaylistDetailWidget = (props) => {
+    const { playlistTitle, playlistImg, playlistTime, playlistVideo, creatorName, openDate } = props;
+
     return (
         <div className="playlist mb-50">
-            <h3 className="widget-title">Playlist List</h3>
+            <h3 className="widget-title">{playlistTitle}</h3>
             <Link to="/"
             ><Playlist_listview
                 playlistTitle='DFS 알고리즘'
