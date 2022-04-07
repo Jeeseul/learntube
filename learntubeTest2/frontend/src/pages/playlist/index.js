@@ -54,6 +54,11 @@ const Playlist = () => {
                     </div>
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
+                            <div className="col-lg-4 col-md-12">
+                                <div className="widget-area">
+                                    <MyPlaylistWidget />
+                                </div>
+                            </div>
                             <div className="col-lg-8 col-md-12">
                                 <div className="widget-area">
                                     <PlaylistWidget />
