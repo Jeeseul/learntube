@@ -61,6 +61,7 @@ import ContactThree from '../pages/contact-3';
 import ContactFour from '../pages/contact-4';
 import Error from '../pages/404';
 import LoadTop from '../components/Common/ScrollTop/LoadTop'
+import CreateMyPlaylist from '../pages/playlist/createMyPlaylist';
 
 
 const App = () => {
@@ -71,7 +72,8 @@ const App = () => {
                 <Switch>
                     <Route path="/learntube-studio/youtubeSearch" component={YoutubeSearch} />
                     <Route path="/learntube-studio" exact component={Playlist} />
-                    <Route path="/learntube-studio/myPlaylist" component={MyPlaylist} />
+                    <Route path="/learntube-studio/myPlaylist" exact component={MyPlaylist} />
+                    <Route path="/learntube-studio/myPlaylist/create" exact component={CreateMyPlaylist} />
                     <Route path="/dashboard" component={DashBoard} />
                     {/* <Route path="/" exact component={Home} /> */}
                     <Route path="/" exact component={Main} />

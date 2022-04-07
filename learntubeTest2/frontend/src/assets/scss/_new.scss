@@ -161,3 +161,21 @@
         width: 100%;
     }
 }
+    
+.createbtn {
+    width: 80px;
+    height: 40px;
+    background-color: $orangeColor; 
+    color: white;
+    border: none;
+    margin-left: 10px;
+}
+
+.canclebtn {
+    width: 80px;
+    height: 40px;
+    background-color: grey; 
+    color: white;
+    border: none;
+    margin-left: 10px;
+}
