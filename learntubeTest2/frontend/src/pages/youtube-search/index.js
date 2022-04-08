@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useCallback} from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/Layout/Header/Header';
 import Footer from '../../components/Layout/Footer/Footer';
@@ -8,29 +8,59 @@ import SearchModal from '../../components/Layout/Header/SearchModal';
 import ScrollToTop from '../../components/Common/ScrollTop';
 import YoutubeVideoListWidget from '../../components/Widget/YoutubeVideoListWidget';
 import YoutubeVideoSearchWidget from '../../components/Widget/YoutubeVideoSearchWidget';
+import axios from 'axios';
+import Youtube from '../../service/youtube';
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
 import Logo from '../../assets/img/logo/Learntube-logos_transparent.png';
 import footerLogo from '../../assets/img/logo/lite-logo.png';
 
-// Event Images
-import eventImg1 from '../../assets/img/event/home12/1.jpg';
-import eventImg2 from '../../assets/img/event/home12/2.jpg';
-import eventImg3 from '../../assets/img/event/home12/3.jpg';
-import eventImg4 from '../../assets/img/event/home12/4.jpg';
-
 const YoutubeSearch = () => {
 
-    const [query,setQuery] = useState('');
-    //const [isSearching,setSearching] = useState(false);
+    // const [query,setQuery] = useState('');
+    // //const [isSearching,setSearching] = useState(false);
 
-      const clickSearch = (query) => {
-        console.log("query at the parent component:" + query);
-        setQuery(query);
-        //setSearching(true);
+    //   const clickSearch = (query) => {
+    //     console.log("query at the parent component:" + query);
+    //     setQuery(query);
+    //     //setSearching(true);
+    // };
+
+    const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
+    const httpClient = axios.create({
+        baseURL: 'https://www.googleapis.com/youtube/v3',
+        params: { key: 'AIzaSyDg2PkWI2J2uNYnikcy3SXU7YjNVWLcU1c' },
+    });
+    const youtube = new Youtube(httpClient);
+
+    const selectVideo = (video) => {
+        setSelectedVideo(video);
     };
 
+    const search = useCallback(
+        (query) => {
+            console.log("query"+query);
+            setSelectedVideo(null);
+            youtube.search(query).then(function(response) {
+                setVideos(response);
+                console.log(videos);
+            })
+                //.search(query).then((responses) => setVideos(responses));
+                //  .then((videos) => setVideos(videos));
+            // console.log("hell0: ");
+            // console.log(videos);
+        },
+        [youtube],
+    );
+    useEffect(() => {
+        youtube
+            .mostPopular() //
+            .then((videos) => setVideos(videos));
+        }, []);
+            // }, [youtube]);
 
     return (
         <React.Fragment>
@@ -54,14 +84,16 @@ const YoutubeSearch = () => {
                 <div className="container">
                     <h3>LearnTube Studio</h3>
                     <div className="widget-area">
-                        < YoutubeVideoSearchWidget clickSearch={clickSearch}/>
+                        < YoutubeVideoSearchWidget onSearch={search} />
                     </div>
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
                             <div className="col-md-12">
                                 <div className="widget-area">
-                                    <YoutubeVideoListWidget query={query}/>
-                                    
+                                    <YoutubeVideoListWidget videos={videos}
+                                        onVideoClick={selectVideo}
+                                        display={selectedVideo ? 'list' : 'grid'} />
+
                                 </div>
                             </div>
                         </div>
