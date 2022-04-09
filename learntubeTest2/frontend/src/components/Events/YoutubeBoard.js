@@ -1,7 +1,9 @@
-import React, { useCallback, memo } from 'react';
+import React, { useCallback, memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProgressBar } from 'react-bootstrap';
-
+import YouTube from 'react-youtube';
+import Modal from 'react-modal';
+import ModalVideo from 'react-modal-video';
 
 const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display }) => {
     //const { videoTitle, thumbnailImg, playTime, viewCount, creatorName, regDate } = props;
@@ -9,7 +11,16 @@ const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display })
     const onClick = useCallback(() => {
       onVideoClick(video);
     }, [onVideoClick, video]);
-
+    const [isOpen, setIsOpen] = useState(false);
+    const openModal = () => setIsOpen(!isOpen);
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      };
     return (
         <div className='courses-item p-0 m-1 rounded-0' onClick={onClick}>
             <div className="m-0" >
@@ -21,7 +32,8 @@ const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display })
             <div className="content-part" style={{ width: '60%' }}>
                 <div className="row ps-3 mb-3">
                     <h3 className="title">
-                        <Link to="/course/course-single">{snippet.title ? snippet.title : '강의제목'}</Link>
+                        <Link onClick={() => { openModal(); }}>{snippet.title ? snippet.title : '강의제목'}</Link>
+                        <ModalVideo channel='youtube' isOpen={isOpen} videoId={snippet.video} onClose={() => { openModal(); }} />
                     </h3>
                 </div>
                 <div className="info-meta p-0">
