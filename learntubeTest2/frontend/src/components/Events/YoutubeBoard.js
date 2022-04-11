@@ -33,7 +33,7 @@ const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display })
                 <div className="row ps-3 mb-3">
                     <h3 className="title">
                         <Link onClick={() => { openModal(); }}>{snippet.title ? snippet.title : '강의제목'}</Link>
-                        <ModalVideo channel='youtube' isOpen={isOpen} videoId={snippet.video} onClose={() => { openModal(); }} />
+                        <ModalVideo channel='youtube' isOpen={isOpen} videoId={video.videoId} onClose={() => { openModal(); }} />
                     </h3>
                 </div>
                 <div className="info-meta p-0">

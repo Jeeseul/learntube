@@ -114,7 +114,7 @@ const Playlist = () => {
                                                         </div>
                                                         <div className="row d-flex justify-content-end ms-3 me-1 mt-3">
                                                                 <button type="submit" className="canclebtn" onClick={() => { openModal(); }}><span className="txt">취소</span></button>
-                                                                <Link className="createbtn text-center pt-3" to="/learntube-studio/myPlaylist/create">생성</Link>
+                                                                <Link className="createbtn text-center pt-3" to="/learntube-studio/youtubeSearch">생성</Link>
                                                         </div>
                                                     </form>
                                                 </div>
