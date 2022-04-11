@@ -82,7 +82,7 @@ const YoutubeSearch = () => {
 
             <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
                 <div className="container">
-                    <h3>LearnTube Studio</h3>
+                    <h3><i className="fa fa-play-circle-o pe-1"></i>DFS</h3>
                     <div className="widget-area">
                         < YoutubeVideoSearchWidget onSearch={search} />
                     </div>
