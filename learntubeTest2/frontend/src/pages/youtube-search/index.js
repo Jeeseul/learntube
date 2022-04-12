@@ -88,7 +88,7 @@ const YoutubeSearch = () => {
                     </div>
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                            <div className="col-md-12">
+                            <div className="col-md-6">
                                 <div className="widget-area">
                                     <YoutubeVideoListWidget videos={videos}
                                         onVideoClick={selectVideo}
@@ -96,6 +96,15 @@ const YoutubeSearch = () => {
 
                                 </div>
                             </div>
+                            <div className="col-md-6">
+                                <div className="widget-area">
+                                    <YoutubeVideoListWidget videos={videos}
+                                        onVideoClick={selectVideo}
+                                        display={selectedVideo ? 'list' : 'grid'} />
+
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

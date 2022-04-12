@@ -12,6 +12,7 @@ const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display })
       onVideoClick(video);
     }, [onVideoClick, video]);
     const [isOpen, setIsOpen] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     const openModal = () => setIsOpen(!isOpen);
     const opts = {
         height: '390',
@@ -32,12 +33,12 @@ const YoutubeBoard = memo(({ video, video: { snippet }, onVideoClick, display })
             <div className="content-part" style={{ width: '60%' }}>
                 <div className="row ps-3 mb-3">
                     <h3 className="title">
-                        <Link onClick={() => { openModal(); }}>{snippet.title ? snippet.title : '강의제목'}</Link>
+                        <Link onClick={() => { openModal(); setIsClicked(!isClicked);} }>{snippet.title ? snippet.title : '강의제목'}</Link>
                         <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={video.id} onClose={() => { openModal(); }} />
                     </h3>
                 </div>
                 <div className="info-meta p-0">
-                    <div className="row ps-2">
+                    <div className="row">
                             <ul>
                                 <li>
                                     <i className="fa fa-user pe-1 "></i> {snippet.channelTitle ? snippet.channelTitle : '-'}
