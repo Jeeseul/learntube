@@ -26,10 +26,38 @@ class Youtube {
       },
     });
     console.log(response);
+
+    const response2 = await this.youtube.get('videos', {
+        params: {
+        part: 'contentDetails,statistics',
+        id:"wqn3gR1WTcA",
+      },
+    });
+    console.log(response2.data.items[0]);
+
+    response.data.items.map((item) => this.youtube.get('videos', {
+      params: {
+      part: 'contentDetails,statistics',
+      id:item.id.videoId,
+    },
+  })
+  );
+
+
+
+      // response2.data.items.map((item) => ({
+      //   ...item,
+      //   id: item.id.videoId,
+      // }));
     return response.data.items.map((item) => ({
       ...item,
       id: item.id.videoId,
+
     }));
+  }
+
+  async detailSearch(){
+    
   }
 }
 

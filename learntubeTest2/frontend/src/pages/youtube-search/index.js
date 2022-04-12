@@ -44,14 +44,23 @@ const YoutubeSearch = () => {
         (query) => {
             console.log("query"+query);
             setSelectedVideo(null);
-            youtube.search(query).then(function(response) {
-                setVideos(response);
-                console.log(videos);
-            })
-                //.search(query).then((responses) => setVideos(responses));
-                //  .then((videos) => setVideos(videos));
-            // console.log("hell0: ");
+            // const response = youtube.search(query);
+            // setVideos(response);
             // console.log(videos);
+            youtube.search(query).then(function(response) {
+                    setVideos(response);
+                    console.log(videos);
+                })
+            videos.map(function (item) {
+                console.log(item.id);
+              })
+
+            // );
+            //youtube.detailSearch(response);
+            // youtube.search(query).then(function(response) {
+            //     setVideos(response);
+            //     console.log(videos);
+            // })
         },
         [youtube],
     );

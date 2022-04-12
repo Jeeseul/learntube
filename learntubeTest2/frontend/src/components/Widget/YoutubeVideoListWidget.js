@@ -6,56 +6,6 @@ import YoutubeBoard from '../../components/Events/YoutubeBoard';
 import courseImg1 from '../../assets/img/courses/1.jpg';
 
 const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
-    // const [query,setQuery] = useState(props.query);
-    // const [errorMs, setError] = useState("");
-    // const [params, setParams] = useState({
-    //     key:/*발급받은 API KEY*/"AIzaSyB53Sg7DqGp0vfZ6WQS8pRMAL98_EUIjGw",
-    //     part: 'snippet',
-    //     q: "샤이니",//검색어
-    //     maxResults: 20,
-    //     type: 'video',
-    //     videoDuration: 'long'
-    //   });
-
-    //   useEffect(() => {
-    //     //setQuery(props.query);
-    //     let temp = props.query;
-    //     console.log("query at the bro component:" + query);
-    //     setParams({
-    //         key:/*발급받은 API KEY*/"AIzaSyCq1XMQIPdtXPITRBqgN8ArI48PkeOx7Yk",
-    //         part: 'snippet',
-    //         q: {temp},//검색어
-    //         maxResults: 20,
-    //         type: 'video',
-    //         videoDuration: 'long'
-    //     });
-    //     console.log(params);
-    //     axios.get('https://www.googleapis.com/youtube/v3/search', { params })
-    //     .then((response) => {
-    //       console.log(response);
-    //       if (!response) {
-    //         setError('검색된 영상이 없습니다.');
-    //         return;
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    //   },[query]);
-
-    //   //setQuery(props.query);
-    //   const clickSearch = (query) => {
-    //     setQuery(props.query);
-    //     console.log("query at the bro component:" + query);
-    //     setParams({
-    //         key:/*발급받은 API KEY*/"AIzaSyDeuVKMqX-hoQGGJCkLlifzJTpqH7bZQMs",
-    //         part: 'snippet',
-    //         q: {query},//검색어
-    //         maxResults: 20,
-    //         type: 'video',
-    //         videoDuration: 'long'
-    //     });
-    // };
 
     return (
         <div className="recent-posts mb-50 py-3">
