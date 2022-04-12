@@ -81,27 +81,26 @@ const YoutubeSearch = () => {
 
 
             <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
-                <div className="container">
+                <div className="px-5">
                     <h3><i className="fa fa-play-circle-o pe-1"></i>DFS</h3>
                     <div className="widget-area">
                         < YoutubeVideoSearchWidget onSearch={search} />
                     </div>
-                    <div class="container text-center dashboard-tabs">
+                    <div class=" text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                            <div className="col-md-6">
+                            <div className="col-md-4">
                                 <div className="widget-area">
                                     <YoutubeVideoListWidget videos={videos}
                                         onVideoClick={selectVideo}
-                                        display={selectedVideo ? 'list' : 'grid'} />
+                                        display={'list'} />
 
                                 </div>
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-8">
                                 <div className="widget-area">
                                     <YoutubeVideoListWidget videos={videos}
                                         onVideoClick={selectVideo}
-                                        display={selectedVideo ? 'list' : 'grid'} />
-
+                                        />
                                 </div>
                             </div>
                             
