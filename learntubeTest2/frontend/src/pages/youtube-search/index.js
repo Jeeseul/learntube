@@ -51,9 +51,9 @@ const YoutubeSearch = () => {
                     setVideos(response);
                     console.log(videos);
                 })
-            videos.map(function (item) {
-                console.log(item.id);
-              })
+            // videos.map(function (item) {
+            //     console.log(item.id);
+            //   })
 
             // );
             //youtube.detailSearch(response);
@@ -69,7 +69,6 @@ const YoutubeSearch = () => {
             .mostPopular() //
             .then((videos) => setVideos(videos));
         }, []);
-            // }, [youtube]);
 
     return (
         <React.Fragment>
