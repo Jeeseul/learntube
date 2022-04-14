@@ -24,17 +24,17 @@ class Youtube {
         maxResults: 25,
         type: 'video',
         q: query,
-        //         videoDuration: 'long'
+        // videoDuration: 'long'
       },
     });
     console.log(response);
 
-    // videoId를 id로 변수명 변경
-    const response2 = response.data.items.map((item) => ({
-      ...item,
-      id: item.id.videoId,
-    }));
-    console.log(response2);
+    response.data.items.map((item) => this.youtube.get('videos', {
+        params: {
+          part: 'contentDetails,statistics',
+          id: item.id.videoId,
+        },
+      }).then((response3) => Object.assign(item, response3.data.items[0])));
 
     // // 검색한 결과의 videoId를 다시 api로 보내서 조회수, 영상 길이 append
     // response2.data.items.map((item) => this.youtube.get('videos', {
@@ -44,13 +44,15 @@ class Youtube {
     //   },
     // }).then((response3) => Object.assign(item, response3.data.items[0])));
 
+    //console.log(response);
+    // videoId를 id로 변수명 변경
+    // return response.data.items.map((item) => ({
+    //   ...item,
+    //   id: item.id.videoId,
 
-
-    return response.data.items.map((item) => ({
-      ...item,
-      id: item.id.videoId,
-
-    }));
+    // }));
+    return response;
+    
 
 
 

@@ -13,14 +13,24 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
             <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80 text-start">
                 <div className="container">
                     <div className="course-part clearfix m-0">
-                        {videos.map((video) => (
+                        {/* {Object.entries(videos).map((entrie, idx) => (
                             <YoutubeBoard
-                            key={video.id}
+                            key={video.id.videoId}
                             video={video}
                             onVideoClick={onVideoClick}
                             display={display}
                         />
-                        ))}
+                        ))
+
+                        } */}
+                         {videos.map((video) => (
+                            <YoutubeBoard
+                            key={video.id.videoId}
+                            video={video}
+                            onVideoClick={onVideoClick}
+                            display={display}
+                        />
+                        ))} 
                     </div>
                 </div>
             </div>

@@ -28,11 +28,12 @@ const YoutubeSearch = () => {
     // };
 
     const [videos, setVideos] = useState([]);
+    const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
-
+    const [isSearched, setIsSearched] = useState(false);
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyDg2PkWI2J2uNYnikcy3SXU7YjNVWLcU1c' },
+        params: { key: 'AIzaSyD5-2GM_QH83Ix9qX7dBNzxCXkQEWcXsc4' },
     });
     const youtube = new Youtube(httpClient);
 
@@ -47,13 +48,30 @@ const YoutubeSearch = () => {
             // const response = youtube.search(query);
             // setVideos(response);
             // console.log(videos);
+            setVideos([]);
             youtube.search(query).then(function(response) {
-                    setVideos(response);
-                    console.log(videos);
+
+                        response.data.items.map((item) => ({
+                            ...item,
+                            id: item.id.videoId,
+                        
+                            }));
+                        
+                        setVideos(response);
+                        console.log(videos);
+                        // response.data.items.map(item,index)(
+                        //     setVideos(item, []...videos)
+                        // )
+                        // console.log("response:", response.data.items[0].statistics);
+                        // if(setVideoloading){
+                        //     console.log("loading!!");
+                        //     console.log("videos:", videos);
+
+                        // }
                 })
-            // videos.map(function (item) {
-            //     console.log(item.id);
-            //   })
+            videos.map(function (item) {
+                console.log(item.id);
+              })
 
             // );
             //youtube.detailSearch(response);
