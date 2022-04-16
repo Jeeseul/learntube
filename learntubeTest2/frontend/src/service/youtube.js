@@ -27,7 +27,7 @@ class Youtube {
         // videoDuration: 'long'
       },
     });
-    console.log(response);
+    //console.log(response);
 
     response.data.items.map((item) => this.youtube.get('videos', {
         params: {

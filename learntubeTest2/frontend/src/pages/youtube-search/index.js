@@ -48,7 +48,6 @@ const YoutubeSearch = () => {
             // const response = youtube.search(query);
             // setVideos(response);
             // console.log(videos);
-            setVideos([]);
             youtube.search(query).then(function(response) {
 
                         response.data.items.map((item) => ({
@@ -57,8 +56,8 @@ const YoutubeSearch = () => {
                         
                             }));
                         
-                        setVideos(response);
-                        console.log(videos);
+                        setSearchedVideos(response);
+                        console.log(searchedVideos);
                         // response.data.items.map(item,index)(
                         //     setVideos(item, []...videos)
                         // )
@@ -82,11 +81,11 @@ const YoutubeSearch = () => {
         },
         [youtube],
     );
-    useEffect(() => {
-        youtube
-            .mostPopular() //
-            .then((videos) => setVideos(videos));
-        }, []);
+    // useEffect(() => {
+    //     youtube
+    //         .mostPopular() //
+    //         .then((videos) => setVideos(videos));
+    //     }, []);
 
     return (
         <React.Fragment>
@@ -114,17 +113,17 @@ const YoutubeSearch = () => {
                     </div>
                     <div class=" text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                            <div className="col-md-4">
+                            {/* <div className="col-md-4">
                                 <div className="widget-area">
-                                    <YoutubeVideoListWidget videos={videos}
+                                    <YoutubeVideoListWidget videos={searchedVideos}
                                         onVideoClick={selectVideo}
                                         display={'list'} />
 
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="col-md-8">
                                 <div className="widget-area">
-                                    <YoutubeVideoListWidget videos={videos}
+                                    <YoutubeVideoListWidget videos={searchedVideos}
                                         onVideoClick={selectVideo}
                                         />
                                 </div>
