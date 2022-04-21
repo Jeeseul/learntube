@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useState, useCallback} from 'react';
+import { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/Layout/Header/Header';
 import Footer from '../../components/Layout/Footer/Footer';
@@ -33,7 +33,8 @@ const YoutubeSearch = () => {
     const [isSearched, setIsSearched] = useState(false);
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyAEdoU79WuXQERX5Q-smUhJV5pIM4Y4OZI' },
+        params: { key: 'AIzaSyB4wr_qmsJbeov2KVgNSUVFPyBorvNbiHU' },
+
     });
     const youtube = new Youtube(httpClient);
 
@@ -41,51 +42,27 @@ const YoutubeSearch = () => {
         setSelectedVideo(video);
     };
 
+
+    // query를 받아와서 search 후 searchedVideos에 결과 저장
     const search = useCallback(
         (query) => {
-            console.log("query"+query);
+            console.log("query: " + query);
             setSelectedVideo(null);
-            // const response = youtube.search(query);
-            // setVideos(response);
-            // console.log(videos);
-            youtube.search(query).then(function(response) {
-
-                        response.data.items.map((item) => ({
-                            ...item,
-                            id: item.id.videoId,
-                        
-                            }));
-                        
-                        setSearchedVideos(response);
-                        console.log(searchedVideos);
-                        // response.data.items.map(item,index)(
-                        //     setVideos(item, []...videos)
-                        // )
-                        // console.log("response:", response.data.items[0].statistics);
-                        // if(setVideoloading){
-                        //     console.log("loading!!");
-                        //     console.log("videos:", videos);
-
-                        // }
-                })
-            videos.map(function (item) {
-                console.log(item.id);
-              })
-
-            // );
-            //youtube.detailSearch(response);
-            // youtube.search(query).then(function(response) {
-            //     setVideos(response);
-            //     console.log(videos);
-            // })
+            youtube.search(query).then(function (response) {
+                setSearchedVideos(response);
+                console.log(searchedVideos);
+            })
         },
         [youtube],
     );
-    // useEffect(() => {
-    //     youtube
-    //         .mostPopular() //
-    //         .then((videos) => setVideos(videos));
-    //     }, []);
+
+    // 처음 페이지를 로딩할 때 default로 query 값 설정
+    useEffect(function () {
+        youtube
+            .search('한동대학교')
+            .then((searchedVideos) => setSearchedVideos(searchedVideos));
+    }, []);
+
 
     return (
         <React.Fragment>
@@ -123,12 +100,14 @@ const YoutubeSearch = () => {
                             </div> */}
                             <div className="col-md-8">
                                 <div className="widget-area">
+
                                     <YoutubeVideoListWidget videos={searchedVideos}
                                         onVideoClick={selectVideo}
-                                        />
+                                    />
                                 </div>
                             </div>
-                            
+
+
                         </div>
                     </div>
                 </div>
