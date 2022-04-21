@@ -33,7 +33,7 @@ const YoutubeSearch = () => {
     const [isSearched, setIsSearched] = useState(false);
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyD5-2GM_QH83Ix9qX7dBNzxCXkQEWcXsc4' },
+        params: { key: 'AIzaSyAEdoU79WuXQERX5Q-smUhJV5pIM4Y4OZI' },
     });
     const youtube = new Youtube(httpClient);
 
