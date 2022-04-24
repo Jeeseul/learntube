@@ -31,9 +31,10 @@ const YoutubeSearch = () => {
     const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isSearched, setIsSearched] = useState(false);
+    const [newQuery,setNewQuery] = useState('한동대학교');
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyB4wr_qmsJbeov2KVgNSUVFPyBorvNbiHU' },
+        params: { key: 'AIzaSyBlCuo5BTHRZoW79AK6IvSqPsh7R1kL31E' },
 
     });
     const youtube = new Youtube(httpClient);
@@ -47,17 +48,29 @@ const YoutubeSearch = () => {
     const search = useCallback(
         (query) => {
             console.log("query: " + query);
+            setNewQuery(query);
             setSelectedVideo(null);
             youtube.search(query).then(function (response) {
                 setSearchedVideos(response);
                 console.log(searchedVideos);
             })
         },
-        [youtube],
+        [youtube,newQuery],
+    );
+
+    const getToken = useCallback(
+        (value) => {
+            console.log("token: "+ value);
+            youtube.getTokenDetail(newQuery,value).then(function(response){
+                console.log("data from token");
+                setSearchedVideos(response);
+            })
+        },[youtube],
     );
 
     // 처음 페이지를 로딩할 때 default로 query 값 설정
     useEffect(function () {
+        // setNewQuery('한동대학교');
         youtube
             .search('한동대학교')
             .then((searchedVideos) => setSearchedVideos(searchedVideos));
@@ -101,9 +114,14 @@ const YoutubeSearch = () => {
                             <div className="col-md-8">
                                 <div className="widget-area">
 
-                                    <YoutubeVideoListWidget videos={searchedVideos}
+                                    <YoutubeVideoListWidget 
+                                        videos={searchedVideos.items}
                                         onVideoClick={selectVideo}
+                                        nextPageToken={searchedVideos.nextPageToken}
+                                        prevPageToken={searchedVideos.prevPageToken}
+                                        getToken={getToken}
                                     />
+
                                 </div>
                             </div>
 

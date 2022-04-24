@@ -5,7 +5,7 @@ import YouTube from 'react-youtube';
 import Modal from 'react-modal';
 import ModalVideo from 'react-modal-video';
 
-const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoClick, display, duration}) => {
+const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoClick}) => {
     //const { videoTitle, thumbnailImg, playTime, viewCount, creatorName, regDate } = props;
     //const displayType = display === 'list' ? styles.list : styles.grid;
     const onClick = useCallback(() => {
@@ -22,9 +22,10 @@ const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoC
             autoplay: 1,
         },
     };
-    console.log(video);
+    //console.log(video);
 
-    console.log(duration);
+    // console.log( video.contentDetails.duration);
+    // let duration =  video.contentDetails.duration;
     //시간 customizing
     // let whereH = duration.indexOf('H');
     // let whereM = duration.indexOf('M');
@@ -95,13 +96,13 @@ const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoC
                             </li>
                             {/* <li>
                                 <i className="fa fa-youtube-play pe-1 "></i> {viewCount ? newViewCount : '0'}
-                            </li>
-                            <li>
-                                <i className="fa fa-clock-o pe-1"></i>{duration ? finalDuration : '0'}
                             </li> */}
                             {/* <li>
+                                <i className="fa fa-clock-o pe-1"></i>{duration ? finalDuration : '0'}
+                            </li>  */}
+                            {/* <li>
                                     <i className="fa fa-calendar-o pe-1"></i>{regDate ? regDate : '-'} 
-                                </li> */}
+                            </li> */}
                         </ul>
                     </div>
                 </div>

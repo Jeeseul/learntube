@@ -3,11 +3,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import YoutubeBoard from '../../components/Events/YoutubeBoard';
-import courseImg1 from '../../assets/img/courses/1.jpg';
 
-const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
+const YoutubeVideoListWidget = ({ videos, onVideoClick,nextPageToken,prevPageToken,getToken }) => {
     console.log("---in listWidget---");
-    //console.log(videos.contentDetails.duration);
+    console.log(videos);
+    const clickPageToken = (value) => {
+       getToken(value);
+    };
+
     return (
         <div className="recent-posts mb-50 py-3">
             <h3 className="widget-title pt-3">검색결과</h3>
@@ -29,12 +32,19 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
                             key={video.id.videoId}
                             video={video}
                             onVideoClick={onVideoClick}
-                            display={display}
-                            duration={video}
+                            //duration={video}
                             // viewCount ={video.statistics.viewCount}
                         />
                         ))}   
                     </div>
+                </div>
+                {/*버튼 들어갈 자리*/}
+                <div className="pagination-area orange-color text-center mt-30 md-mt-0">
+                    <ul className="pagination-part">
+                        {/* <li className="active"><Link to="#">1</Link></li> */}
+                        {prevPageToken ? <li onClick={(e)=>clickPageToken(prevPageToken)} ><Link to="#"><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Prev</Link></li>: null}
+                        {nextPageToken ? <li onClick={(e)=>clickPageToken(nextPageToken)} ><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li> : null}
+                    </ul>
                 </div>
             </div>
         </div>
