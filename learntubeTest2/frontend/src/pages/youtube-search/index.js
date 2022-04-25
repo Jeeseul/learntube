@@ -10,6 +10,9 @@ import YoutubeVideoListWidget from '../../components/Widget/YoutubeVideoListWidg
 import YoutubeVideoSearchWidget from '../../components/Widget/YoutubeVideoSearchWidget';
 import axios from 'axios';
 import Youtube from '../../service/youtube';
+import YouTube from 'react-youtube';
+
+
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
@@ -26,20 +29,29 @@ const YoutubeSearch = () => {
     //     setQuery(query);
     //     //setSearching(true);
     // };
-
+    const opts = {
+        height: '480',
+        width: '640',
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+        },
+    };
     const [videos, setVideos] = useState([]);
     const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isSearched, setIsSearched] = useState(false);
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyB4wr_qmsJbeov2KVgNSUVFPyBorvNbiHU' },
+        params: { key: 'AIzaSyCff79cBsJAXrXG9YgRk0lmB7i1FgcC-Lg' },
 
     });
     const youtube = new Youtube(httpClient);
 
     const selectVideo = (video) => {
         setSelectedVideo(video);
+        console.log(selectedVideo);
+        console.log(selectedVideo.id);
     };
 
 
@@ -98,16 +110,29 @@ const YoutubeSearch = () => {
 
                                 </div>
                             </div> */}
-                            <div className="col-md-8">
-                                <div className="widget-area">
-
-                                    <YoutubeVideoListWidget videos={searchedVideos}
-                                        onVideoClick={selectVideo}
-                                    />
+                            {/* video를 선택했을 경우 화면 반으로 나눠서 구성 */}
+                            {selectedVideo ?
+                                (<div className="col-md-5">
+                                    <div className="widget-area">
+                                        <YoutubeVideoListWidget videos={searchedVideos}
+                                            onVideoClick={selectVideo} />
+                                    </div>
                                 </div>
-                            </div>
 
+                                ) : <div className="col-md-12">
+                                    <div className="widget-area">
+                                        <YoutubeVideoListWidget videos={searchedVideos}
+                                            onVideoClick={selectVideo} />
+                                    </div>
+                                    </div>}
 
+                            {selectedVideo ? (
+                                <div className="col-md-7 videoAnimation">
+                                    <YouTube videoId={selectedVideo.id} opts={opts} />
+                                </div>
+                            ) :
+                                <div></div>
+                            }
                         </div>
                     </div>
                 </div>

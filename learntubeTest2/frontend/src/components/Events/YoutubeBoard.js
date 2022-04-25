@@ -1,17 +1,17 @@
-import React, { useCallback, memo, useState } from 'react';
+import React, { useCallback, memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ProgressBar } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 import Modal from 'react-modal';
 import ModalVideo from 'react-modal-video';
 
-const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoClick, display, duration}) => {
+const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoClick, display}) => {
     //const { videoTitle, thumbnailImg, playTime, viewCount, creatorName, regDate } = props;
     //const displayType = display === 'list' ? styles.list : styles.grid;
     const onClick = useCallback(() => {
         onVideoClick(video);
     }, [onVideoClick, video]);
-    const [isOpen, setIsOpen] = useState(false);
+        const [isOpen, setIsOpen] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const openModal = () => setIsOpen(!isOpen);
     const opts = {
@@ -22,9 +22,12 @@ const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoC
             autoplay: 1,
         },
     };
-    console.log(video);
-
-    console.log(duration);
+    const [searchedVideos, setSearchedVideos] = useState([]);
+    useEffect(function () {
+        setSearchedVideos(video);
+    });
+    
+    //console.log(searchedVideos);
     //시간 customizing
     // let whereH = duration.indexOf('H');
     // let whereM = duration.indexOf('M');
@@ -83,7 +86,8 @@ const YoutubeBoard = memo(({ video, video: { snippet, contentDetails }, onVideoC
             <div className="content-part" style={{ width: '60%' }}>
                 <div className="row ps-3 mb-3">
                     <h3 className="title">
-                        <Link onClick={() => { openModal(); setIsClicked(!isClicked); }}>{snippet.title ? snippet.title : '강의제목'}</Link>
+                        {/* <Link onClick={() => { openModal(); setIsClicked(!isClicked); }}>{snippet.title ? snippet.title : '강의제목'}</Link> */}
+                        <Link >{snippet.title ? snippet.title : '강의제목'}</Link>
                         <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={video.id} onClose={() => { openModal(); }} />
                     </h3>
                 </div>

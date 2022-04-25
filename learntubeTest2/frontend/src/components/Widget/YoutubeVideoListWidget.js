@@ -4,10 +4,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import YoutubeBoard from '../../components/Events/YoutubeBoard';
 import courseImg1 from '../../assets/img/courses/1.jpg';
-
 const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
+    const [searchedVideos, setSearchedVideos] = useState([]);
+
     console.log("---in listWidget---");
-    //console.log(videos.contentDetails.duration);
+    useEffect(function () {
+        setSearchedVideos(videos);
+        });
+        // console.log(searchedVideos);
     return (
         <div className="recent-posts mb-50 py-3">
             <h3 className="widget-title pt-3">검색결과</h3>
@@ -24,13 +28,14 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
                         ))
 
                         } */}
-                         {videos.map((video) => (
+                         {searchedVideos.map((video) => (
                             <YoutubeBoard
                             key={video.id.videoId}
                             video={video}
                             onVideoClick={onVideoClick}
                             display={display}
-                            duration={video}
+                            videoNew = {video}
+                            //duration={video.contentDetails}
                             // viewCount ={video.statistics.viewCount}
                         />
                         ))}   
