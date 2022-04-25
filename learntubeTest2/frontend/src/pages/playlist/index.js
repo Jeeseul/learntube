@@ -49,17 +49,18 @@ const Playlist = () => {
             <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
                 <div className="container">
                     <h3>LearnTube Studio</h3>
-                    <div className="widget-area">
-                        < SearchWidget />
-                    </div>
+
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                            <div className="col-lg-4 col-md-12">
+                        <div className="widget-area">
+                        < SearchWidget />
+                    </div>
+                            {/* <div className="col-lg-4 col-md-12">
                                 <div className="widget-area">
                                     <MyPlaylistWidget />
                                 </div>
-                            </div>
-                            <div className="col-lg-8 col-md-12">
+                            </div> */}
+                            <div className="col-lg-12 col-md-12">
                                 <div className="widget-area">
                                     <PlaylistWidget />
                                 </div>
