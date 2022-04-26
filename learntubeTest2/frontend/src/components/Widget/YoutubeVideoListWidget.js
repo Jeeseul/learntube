@@ -13,8 +13,7 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
         });
         // console.log(searchedVideos);
     return (
-        <div className="recent-posts mb-50 py-3">
-            <h3 className="widget-title pt-3">검색결과</h3>
+        <div className=" mb-50 py-3 ">
             <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80 text-start">
                 <div className="container">
                     <div className="course-part clearfix m-0">

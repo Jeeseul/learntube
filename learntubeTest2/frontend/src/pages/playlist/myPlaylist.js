@@ -38,9 +38,9 @@ const MyPlaylist = () => {
             <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
                 <div className="container">
                     <h3>LearnTube Studio</h3>
-                    <div className="widget-area">
+                    {/* <div className="widget-area">
                         < SearchWidget />
-                    </div>
+                    </div> */}
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
                             <div className="col-lg-4 col-md-12">

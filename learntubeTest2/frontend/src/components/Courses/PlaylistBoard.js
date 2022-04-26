@@ -7,7 +7,7 @@ const PlaylistBoard = (props) => {
     const { playlistTitle, playlistImg, playlistTime, playlistVideo, creatorName, openDate } = props;
 
     return (
-        <div className='courses-item p-0 m-1 rounded-0'>
+        <div className='courses-item p-0 m-4 rounded-0'>
             <div className="m-0" >
                 <img style={{ height: '100px' }}
                     src={playlistImg}

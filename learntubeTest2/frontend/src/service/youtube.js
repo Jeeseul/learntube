@@ -85,6 +85,7 @@ async searchNew(query) {
   //   id: item.id.videoId,
 
   // }));
+  //return response.data.items;
   return response.data.items;
 }
   async detailSearch() {

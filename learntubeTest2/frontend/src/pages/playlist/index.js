@@ -46,15 +46,15 @@ const Playlist = () => {
             />
 
 
-            <div className="rs-event orange-style pt-50 pb-100 md-pt-80 md-pb-80">
+            <div className="rs-event orange-style pb-100 md-pb-80">
                 <div className="container">
-                    <h3>LearnTube Studio</h3>
+                    {/* <h3>LearnTube Studio</h3> */}
 
                     <div class="container text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row">
-                        <div className="widget-area">
-                        < SearchWidget />
-                    </div>
+                            {/* <div className="widget-area">
+                                    < SearchWidget />
+                                </div> */}
                             {/* <div className="col-lg-4 col-md-12">
                                 <div className="widget-area">
                                     <MyPlaylistWidget />
@@ -66,7 +66,7 @@ const Playlist = () => {
                                 </div>
                             </div>
 
-                            <Modal isOpen={isOpen} onClose={() => { openModal(); }} onRequestClose={() => setIsOpen(false)}  
+                            <Modal isOpen={isOpen} onClose={() => { openModal(); }} onRequestClose={() => setIsOpen(false)}
                                 style={{
                                     overlay: {
                                         position: 'fixed',
@@ -101,8 +101,8 @@ const Playlist = () => {
                                                     <form id="contact-form" method="post" action="#">
                                                         <div className="row clearfix">
                                                             <div className="form-group col-lg-12 mb-25">
-                                                                <div className="my-2">Playlist 이름<span className="ms-1" style={{color: 'red'}}>*</span></div>
-                                                                <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required/>
+                                                                <div className="my-2">Playlist 이름<span className="ms-1" style={{ color: 'red' }}>*</span></div>
+                                                                <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required />
                                                             </div>
                                                             <div className="form-group col-lg-12">
                                                                 <div className="my-2">Playlist 설명</div>
@@ -114,8 +114,8 @@ const Playlist = () => {
                                                             </div>
                                                         </div>
                                                         <div className="row d-flex justify-content-end ms-3 me-1 mt-3">
-                                                                <button type="submit" className="canclebtn" onClick={() => { openModal(); }}><span className="txt">취소</span></button>
-                                                                <Link className="createbtn text-center pt-3" to="/learntube-studio/youtubeSearch">생성</Link>
+                                                            <button type="submit" className="canclebtn" onClick={() => { openModal(); }}><span className="txt">취소</span></button>
+                                                            <Link className="createbtn text-center pt-2" to="/learntube-studio/youtubeSearch">생성</Link>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -129,10 +129,10 @@ const Playlist = () => {
                 </div>
             </div>
             <div className='scrollup pe-3'>
-				<div onClick={() => { openModal(); }}>
-					<i className="fa fa-plus"></i>
-				</div>
-		    </div>
+                <div onClick={() => { openModal(); }}>
+                    <i className="fa fa-plus"></i>
+                </div>
+            </div>
             <Footer
                 footerClass="rs-footer home9-style main-home"
                 footerLogo={footerLogo}
