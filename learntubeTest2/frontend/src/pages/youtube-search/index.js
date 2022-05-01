@@ -37,13 +37,16 @@ const YoutubeSearch = () => {
             autoplay: 1,
         },
     };
+    const [newQuery, setNewQuery] = useState("한동대학교");
     const [videos, setVideos] = useState([]);
     const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isSearched, setIsSearched] = useState(false);
+    const [paginatedVideos, setPaginatedVideos] = useState([]);
+
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyDCE1IQPJoNVzv5OFN-dcQEgENL870Yyz0' },
+        params: { key: 'AIzaSyAcdBXRH-x-iEiIct8-XkGCY8PsBsv8sQM' },
 
     });
     const youtube = new Youtube(httpClient);
@@ -59,6 +62,7 @@ const YoutubeSearch = () => {
     const search = useCallback(
         (query) => {
             console.log("query: " + query);
+            setNewQuery(query);
             setSelectedVideo(null);
             youtube.search(query).then(function (response) {
                 setSearchedVideos(response);
@@ -68,11 +72,24 @@ const YoutubeSearch = () => {
         [youtube],
     );
 
+    const getToken = useCallback(
+        async (value) => {
+            console.log("token: " + value);
+            await youtube.getTokenDetail(newQuery, value).then(function (response) {
+                console.log("data from token");
+                setSearchedVideos(response);
+                setPaginatedVideos(response.items);
+            })
+        }, [youtube],
+    );
+
+
     // 처음 페이지를 로딩할 때 default로 query 값 설정
     useEffect(function () {
         youtube
             .search('한동대학교')
             .then((searchedVideos) => setSearchedVideos(searchedVideos));
+        setPaginatedVideos(searchedVideos);
     }, []);
 
 
@@ -101,7 +118,7 @@ const YoutubeSearch = () => {
                         <h3 className="ps-4 mb-0"><i className="fa fa-play-circle-o pe-1 pt-3"></i>DFS</h3>
                         <div className="widget-area">
                             < YoutubeVideoSearchWidget onSearch={search} />
-                        </div> 
+                        </div>
                     </div>
                     <div class="text-center dashboard-tabs">
                         <div className="intro-info-tabs border-none row mx-5">
@@ -117,15 +134,17 @@ const YoutubeSearch = () => {
                             {selectedVideo ?
                                 (<div className="col-lg-6 col-md-7">
                                     <div className="widget-area">
-                                        <YoutubeVideoListWidget videos={searchedVideos}
-                                            onVideoClick={selectVideo} />
+                                        <YoutubeVideoListWidget videos={paginatedVideos}
+                                            onVideoClick={selectVideo} nextPageToken={searchedVideos.nextPageToken}
+                                            prevPageToken={searchedVideos.prevPageToken} getToken={getToken} />
                                     </div>
                                 </div>
 
                                 ) : <div className="col-md-12 col-12">
                                     <div className="widget-area">
-                                        <YoutubeVideoListWidget videos={searchedVideos}
-                                            onVideoClick={selectVideo} />
+                                        <YoutubeVideoListWidget videos={paginatedVideos}
+                                            onVideoClick={selectVideo} nextPageToken={searchedVideos.nextPageToken}
+                                            prevPageToken={searchedVideos.prevPageToken} getToken={getToken} />
                                     </div>
                                 </div>}
 

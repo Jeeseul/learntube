@@ -4,10 +4,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import YoutubeBoard from '../../components/Events/YoutubeBoard';
 import courseImg1 from '../../assets/img/courses/1.jpg';
-const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
+const YoutubeVideoListWidget = ({ videos, onVideoClick, display ,nextPageToken,prevPageToken,getToken}) => {
     const [searchedVideos, setSearchedVideos] = useState([]);
 
     console.log("---in listWidget---");
+    const clickPageToken = (value) => {
+        getToken(value);
+     };
     useEffect(function () {
         setSearchedVideos(videos);
         });
@@ -39,6 +42,13 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
                         />
                         ))}   
                     </div>
+                </div>
+                <div className="pagination-area orange-color text-center mt-30 md-mt-0">
+                    <ul className="pagination-part">
+                        {/* <li className="active"><Link to="#">1</Link></li> */}
+                        {prevPageToken ? <li onClick={(e)=>clickPageToken(prevPageToken)} ><Link to="#"><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Prev</Link></li>: null}
+                        {nextPageToken ? <li onClick={(e)=>clickPageToken(nextPageToken)} ><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li> : null}
+                    </ul>
                 </div>
             </div>
         </div>
