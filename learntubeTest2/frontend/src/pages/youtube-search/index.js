@@ -10,6 +10,9 @@ import YoutubeVideoListWidget from '../../components/Widget/YoutubeVideoListWidg
 import YoutubeVideoSearchWidget from '../../components/Widget/YoutubeVideoSearchWidget';
 import axios from 'axios';
 import Youtube from '../../service/youtube';
+import YouTube from 'react-youtube';
+
+
 
 // Image
 import favIcon from '../../assets/img/fav-orange.png';
@@ -26,54 +29,62 @@ const YoutubeSearch = () => {
     //     setQuery(query);
     //     //setSearching(true);
     // };
-
+    const opts = {
+        height: '480',
+        width: '640',
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+        },
+    };
     const [videos, setVideos] = useState([]);
     const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isSearched, setIsSearched] = useState(false);
-    const [newQuery,setNewQuery] = useState('한동대학교');
+    const [newQuery, setNewQuery] = useState('한동대학교');
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
         params: { key: 'AIzaSyBlCuo5BTHRZoW79AK6IvSqPsh7R1kL31E' },
-
     });
     const youtube = new Youtube(httpClient);
 
     const selectVideo = (video) => {
         setSelectedVideo(video);
+        console.log(selectedVideo);
+        console.log(selectedVideo.id);
     };
 
 
     // query를 받아와서 search 후 searchedVideos에 결과 저장
-    const search = useCallback(
-        (query) => {
+    const search =  useCallback(
+        async (query) => {
             console.log("query: " + query);
             setNewQuery(query);
             setSelectedVideo(null);
-            youtube.search(query).then(function (response) {
+            await youtube.search(query).then(function (response) {
                 setSearchedVideos(response);
                 console.log(searchedVideos);
             })
         },
-        [youtube,newQuery],
+        [youtube, newQuery],
     );
 
     const getToken = useCallback(
-        (value) => {
-            console.log("token: "+ value);
-            youtube.getTokenDetail(newQuery,value).then(function(response){
+        async (value) => {
+            console.log("token: " + value);
+            await youtube.getTokenDetail(newQuery, value).then(function (response) {
                 console.log("data from token");
                 setSearchedVideos(response);
             })
-        },[youtube],
+        }, [youtube],
     );
 
     // 처음 페이지를 로딩할 때 default로 query 값 설정
-    useEffect(function () {
+    useEffect(async function () {
         // setNewQuery('한동대학교');
-        youtube
-            .search('한동대학교')
-            .then((searchedVideos) => setSearchedVideos(searchedVideos));
+        let searchedResults = await youtube.search('한동대학교');
+        setSearchedVideos(searchedResults);
+            //.then((searchedVideos) => setSearchedVideos(searchedVideos));
     }, []);
 
 
@@ -111,10 +122,10 @@ const YoutubeSearch = () => {
 
                                 </div>
                             </div> */}
-                            <div className="col-md-8">
+                            <div className="col-md-12">
                                 <div className="widget-area">
 
-                                    <YoutubeVideoListWidget 
+                                     <YoutubeVideoListWidget
                                         videos={searchedVideos.items}
                                         onVideoClick={selectVideo}
                                         nextPageToken={searchedVideos.nextPageToken}
@@ -122,15 +133,36 @@ const YoutubeSearch = () => {
                                         getToken={getToken}
                                     />
 
+
+                                    {/* video를 선택했을 경우 화면 반으로 나눠서 구성 */}
+                                    {/* {selectedVideo ?
+                                        (<div className="col-md-5">
+                                            <div className="widget-area">
+                                                <YoutubeVideoListWidget videos={searchedVideos.items}
+                                                    onVideoClick={selectVideo} />
+                                            </div>
+                                        </div>
+
+                                        ) : <div className="col-md-12">
+                                            <div className="widget-area">
+                                                <YoutubeVideoListWidget videos={searchedVideos.items}
+                                                    onVideoClick={selectVideo} />
+                                            </div>
+                                        </div>}
+
+                                    {selectedVideo ? (
+                                        <div className="col-md-7 videoAnimation">
+                                            <YouTube videoId={selectedVideo.id} opts={opts} />
+                                        </div>
+                                    ) :
+                                        <div></div>
+                                    } */}
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
-
             <Footer
                 footerClass="rs-footer home9-style main-home"
                 footerLogo={footerLogo}

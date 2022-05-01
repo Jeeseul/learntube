@@ -11,7 +11,18 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick,nextPageToken,prevPageTok
        getToken(value);
     };
 
-    return (
+// import courseImg1 from '../../assets/img/courses/1.jpg';
+// const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
+    const [searchedVideos, setSearchedVideos] = useState([]);
+
+//     console.log("---in listWidget---");
+    useEffect( async function () {
+        let tempVideos = await videos;
+        setSearchedVideos(tempVideos);
+    },[videos]);
+        console.log(typeof searchedVideos);
+
+    return searchedVideos? (
         <div className="recent-posts mb-50 py-3">
             <h3 className="widget-title pt-3">검색결과</h3>
             <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80 text-start">
@@ -27,12 +38,15 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick,nextPageToken,prevPageTok
                         ))
 
                         } */}
-                         {videos.map((video) => (
+                         {searchedVideos.map((video) => (
                             <YoutubeBoard
                             key={video.id.videoId}
                             video={video}
                             onVideoClick={onVideoClick}
                             //duration={video}
+                            // display={display}
+                            // videoNew = {video}
+                            //duration={video.contentDetails}
                             // viewCount ={video.statistics.viewCount}
                         />
                         ))}   
@@ -48,7 +62,7 @@ const YoutubeVideoListWidget = ({ videos, onVideoClick,nextPageToken,prevPageTok
                 </div>
             </div>
         </div>
-    )
+    ) : (<div>검색중</div>)
 }
 
 export default YoutubeVideoListWidget;
