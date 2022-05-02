@@ -21,14 +21,6 @@ import footerLogo from '../../assets/img/logo/lite-logo.png';
 
 const YoutubeSearch = () => {
 
-    // const [query,setQuery] = useState('');
-    // //const [isSearching,setSearching] = useState(false);
-
-    //   const clickSearch = (query) => {
-    //     console.log("query at the parent component:" + query);
-    //     setQuery(query);
-    //     //setSearching(true);
-    // };
     const opts = {
         height: '480',
         width: '640',
@@ -37,36 +29,31 @@ const YoutubeSearch = () => {
             autoplay: 1,
         },
     };
+
     const [newQuery, setNewQuery] = useState("한동대학교");
-    const [videos, setVideos] = useState([]);
     const [searchedVideos, setSearchedVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
-    const [isSearched, setIsSearched] = useState(false);
     const [paginatedVideos, setPaginatedVideos] = useState([]);
 
     const httpClient = axios.create({
         baseURL: 'https://www.googleapis.com/youtube/v3',
-        params: { key: 'AIzaSyAcdBXRH-x-iEiIct8-XkGCY8PsBsv8sQM' },
+        params: { key: 'AIzaSyDfZXlaz1ua-0YZefMsK6qcDs29zEmL2r4' },
 
     });
     const youtube = new Youtube(httpClient);
 
     const selectVideo = (video) => {
         setSelectedVideo(video);
-        console.log(selectedVideo);
-        console.log(selectedVideo.id);
     };
 
 
     // query를 받아와서 search 후 searchedVideos에 결과 저장
     const search = useCallback(
         (query) => {
-            console.log("query: " + query);
             setNewQuery(query);
             setSelectedVideo(null);
             youtube.search(query).then(function (response) {
                 setSearchedVideos(response);
-                console.log(searchedVideos);
             })
         },
         [youtube],
@@ -74,9 +61,7 @@ const YoutubeSearch = () => {
 
     const getToken = useCallback(
         async (value) => {
-            console.log("token: " + value);
             await youtube.getTokenDetail(newQuery, value).then(function (response) {
-                console.log("data from token");
                 setSearchedVideos(response);
                 setPaginatedVideos(response.items);
             })
@@ -85,11 +70,10 @@ const YoutubeSearch = () => {
 
 
     // 처음 페이지를 로딩할 때 default로 query 값 설정
-    useEffect(function () {
-        youtube
-            .search('한동대학교')
-            .then((searchedVideos) => setSearchedVideos(searchedVideos));
-        setPaginatedVideos(searchedVideos);
+    useEffect(async function () {
+        let searchedResults = await youtube.search('한동대학교');
+        setSearchedVideos(searchedResults);
+        console.log(searchedVideos);
     }, []);
 
 
@@ -134,7 +118,7 @@ const YoutubeSearch = () => {
                             {selectedVideo ?
                                 (<div className="col-lg-6 col-md-7">
                                     <div className="widget-area">
-                                        <YoutubeVideoListWidget videos={paginatedVideos}
+                                        <YoutubeVideoListWidget videos={searchedVideos.items}
                                             onVideoClick={selectVideo} nextPageToken={searchedVideos.nextPageToken}
                                             prevPageToken={searchedVideos.prevPageToken} getToken={getToken} />
                                     </div>
@@ -142,7 +126,7 @@ const YoutubeSearch = () => {
 
                                 ) : <div className="col-md-12 col-12">
                                     <div className="widget-area">
-                                        <YoutubeVideoListWidget videos={paginatedVideos}
+                                        <YoutubeVideoListWidget videos={searchedVideos.items}
                                             onVideoClick={selectVideo} nextPageToken={searchedVideos.nextPageToken}
                                             prevPageToken={searchedVideos.prevPageToken} getToken={getToken} />
                                     </div>
