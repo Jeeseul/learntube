@@ -55,11 +55,11 @@ const YoutubeSearch = () => {
         (query) => {
             setNewQuery(query);
             setSelectedVideo(null);
-            await youtube.search(query).then(function (response) {
+            youtube.search(query).then(function (response) {
                 setSearchedVideos(response);
             })
         },
-        [youtube, newQuery],
+        [youtube],
     );
 
     const getToken = useCallback(
