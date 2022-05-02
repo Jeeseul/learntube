@@ -179,3 +179,39 @@
     border: none;
     margin-left: 10px;
 }
+
+.searchbtn {
+    padding: 40px 30px 40px;
+    position: relative;
+    [type=search] {
+        border: 1px solid #ddd;
+        color: #444444;
+        padding: 12px 17px;
+        width: 100%;
+        border-radius: 5px;
+        position: relative;
+    }
+    button{
+        background: transparent;
+        border: medium none;
+        color: $bodyColor;
+        padding: 11px 15px 12px;
+        position: absolute;
+        display: block;
+        right: 0px;
+        top: 0;
+        z-index: 10;
+        font-size: 20px;
+        border-radius: 0 5px 5px;
+        i{
+            padding: 45px 40px 40px;
+            &:before{
+                font-weight: 600;
+                font-size: 18px;
+            }
+        }
+        &:hover{
+            color: $primaryColor;
+        }
+    }
+}

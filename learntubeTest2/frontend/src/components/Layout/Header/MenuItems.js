@@ -84,33 +84,9 @@ const MenuItems = (props) => {
             <li className={parentMenu === 'course' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="/course">Courses</Link>
             </li>
-            {/* <li className={parentMenu === 'course' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
-                <Link to="#" as="#">Courses</Link>
-                <ul className="sub-menu">
-                    <li>
-                        <Link to="/course" className={location.pathname === "/course" ? "active-menu" : ""}>Courses One</Link>
-                    </li>
-                    <li>
-                        <Link to="/course-2" className={location.pathname === "/course-2" ? "active-menu" : ""}>Courses Two</Link>
-                    </li>
-                    <li>
-                        <Link to="/course-3" className={location.pathname === "/course-3" ? "active-menu" : ""}>Courses Three</Link>
-                    </li>
-                    <li>
-                        <Link to="/course-4" className={location.pathname === "/course-4" ? "active-menu" : ""}>Courses Four</Link>
-                    </li>
-                    <li>
-                        <Link to="/course-5" className={location.pathname === "/course-5" ? "active-menu" : ""}>Courses Five</Link>
-                    </li>
-                    <li>
-                        <Link to="/course-6" className={location.pathname === "/course-6" ? "active-menu" : ""}>Courses Six</Link>
-                    </li>
-                    <li>
-                        <Link to="/course/course-single" className={location.pathname === "/course/course-single" ? "active-menu" : ""}>Courses Single</Link>
-                    </li>
-                </ul>
-            </li> */}
-            <li className={parentMenu === 'learntube' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}><Link to="/learntube-studio">LearnTube Studio</Link></li>
+            <li className={parentMenu === 'learntube' ? 'rs-mega-menu menu-item-has-children current-menu-item' : 'rs-mega-menu menu-item-has-children'}>
+                <Link to="/learntube-studio">LearnTube Studio</Link>
+            </li>
             {/* <li className={parentMenu === 'pages' ? 'menu-item-has-children current-menu-item' : 'menu-item-has-children'}>
                 <Link to="#">Pages</Link>
                 <ul className="sub-menu">

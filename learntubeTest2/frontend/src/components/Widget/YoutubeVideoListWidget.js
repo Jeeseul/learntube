@@ -1,68 +1,46 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import YoutubeBoard from '../../components/Events/YoutubeBoard';
 
-const YoutubeVideoListWidget = ({ videos, onVideoClick,nextPageToken,prevPageToken,getToken }) => {
-    console.log("---in listWidget---");
-    console.log(videos);
-    const clickPageToken = (value) => {
-       getToken(value);
-    };
-
-// import courseImg1 from '../../assets/img/courses/1.jpg';
-// const YoutubeVideoListWidget = ({ videos, onVideoClick, display }) => {
+const YoutubeVideoListWidget = ({ videos, onVideoClick, nextPageToken, prevPageToken, getToken }) => {
     const [searchedVideos, setSearchedVideos] = useState([]);
 
-//     console.log("---in listWidget---");
-    useEffect( async function () {
-        let tempVideos = await videos;
-        setSearchedVideos(tempVideos);
-    },[videos]);
-        console.log(typeof searchedVideos);
+    const clickPageToken = (value) => {
+        getToken(value);
+    };
+    useEffect(function () {
+        setSearchedVideos(videos);
+        console.log(searchedVideos);
+    }, [videos]);
 
-    return searchedVideos? (
-        <div className="recent-posts mb-50 py-3">
-            <h3 className="widget-title pt-3">검색결과</h3>
+    return searchedVideos ? (
+        <div className=" mb-50 py-3 ">
             <div id="rs-popular-course" className="rs-popular-courses list-view style1 course-view-style orange-style rs-inner-blog white-bg pb-100 md-pt-70 md-pb-80 text-start">
                 <div className="container">
                     <div className="course-part clearfix m-0">
-                        {/* {Object.entries(videos).map((entrie, idx) => (
+                        {searchedVideos.map((video) => (
                             <YoutubeBoard
-                            key={video.id.videoId}
-                            video={video}
-                            onVideoClick={onVideoClick}
-                            display={display}
-                        />
-                        ))
-
-                        } */}
-                         {searchedVideos.map((video) => (
-                            <YoutubeBoard
-                            key={video.id.videoId}
-                            video={video}
-                            onVideoClick={onVideoClick}
-                            //duration={video}
-                            // display={display}
-                            // videoNew = {video}
-                            //duration={video.contentDetails}
-                            // viewCount ={video.statistics.viewCount}
-                        />
-                        ))}   
+                                key={video.id.videoId}
+                                video={video}
+                                onVideoClick={onVideoClick}
+                                videoNew={video}
+                                //duration={video.contentDetails.duration}
+                                //viewCount ={video.statistics.viewCount}
+                            />
+                        ))}
                     </div>
                 </div>
-                {/*버튼 들어갈 자리*/}
                 <div className="pagination-area orange-color text-center mt-30 md-mt-0">
                     <ul className="pagination-part">
-                        {/* <li className="active"><Link to="#">1</Link></li> */}
-                        {prevPageToken ? <li onClick={(e)=>clickPageToken(prevPageToken)} ><Link to="#"><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Prev</Link></li>: null}
-                        {nextPageToken ? <li onClick={(e)=>clickPageToken(nextPageToken)} ><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li> : null}
+                        {prevPageToken ? <li onClick={(e) => clickPageToken(prevPageToken)} ><Link to="#"><i className="fa fa-long-arrow-left"></i>&nbsp;&nbsp;Prev</Link></li> : null}
+                        {nextPageToken ? <li onClick={(e) => clickPageToken(nextPageToken)} ><Link to="#">Next <i className="fa fa-long-arrow-right"></i></Link></li> : null}
+
                     </ul>
                 </div>
             </div>
         </div>
-    ) : (<div>검색중</div>)
+    ) : <div>검색중...</div>
 }
 
 export default YoutubeVideoListWidget;

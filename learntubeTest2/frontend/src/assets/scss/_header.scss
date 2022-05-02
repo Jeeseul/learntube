@@ -609,7 +609,7 @@
                                     > a {
                                         padding-right: 17px;
                                        	&:before {
-                                            content: "+";
+                                           
                                             position: absolute;
                                             left: auto;
                                             right: 0;
@@ -630,7 +630,7 @@
                                    &:hover {
                                        > a {
                                            &:before {
-                                               content: "-";
+                                          
                                            }
                                        }
                                    }
