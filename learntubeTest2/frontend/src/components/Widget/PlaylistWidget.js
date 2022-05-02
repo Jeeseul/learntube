@@ -1,19 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlaylistBoard from '../../components/Courses/PlaylistBoard';
-import courseImg1 from '../../assets/img/courses/1.jpg';
 import SearchWidget from '../../components/Widget/SearchWidget';
-
 import CourseDashBoard from '../../components/Courses/CourseDashBoard';
 
 // Course courseImg
+import courseImg1 from '../../assets/img/courses/1.jpg';
 import courseImg2 from '../../assets/img/courses/2.jpg';
 import courseImg3 from '../../assets/img/courses/3.jpg';
 
 const PlaylistWidget = () => {
     return (
-
-
         <div className="mb-50">
             <div class="row">
                 <h3 className="col text-start p-5">나의 Playlist</h3>
@@ -34,7 +31,7 @@ const PlaylistWidget = () => {
                             />
                             <PlaylistBoard
                                 playlistTitle="DFS 기초"
-                                playlistImg={courseImg1}
+                                playlistImg={courseImg2}
                                 playlistTime="40:12"
                                 playlistVideo={8}
                                 openDate="2022.03"

@@ -17,7 +17,7 @@ const PlaylistBoard = (props) => {
             <div className="content-part" style={{ width: '60%' }}>
                 <div className="row ps-3 mb-3">
                     <h3 className="title">
-                        <Link to="/course/course-single">{playlistTitle ? playlistTitle : '강의제목'}</Link>
+                        <Link to="/learntube-studio/myPlaylist">{playlistTitle ? playlistTitle : '강의제목'}</Link>
                     </h3>
                 </div>
                 <div className="info-meta p-0">
